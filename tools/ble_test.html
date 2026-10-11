@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SwingLab bat sensor test</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { --bg:#f3f5f1; --panel:#fff; --ink:#17221c; --muted:#58675e; --line:#dde4dc; --accent:#1c7541; --ok:#1c7541; --ok-soft:#e4f2e9;
+          --warn:#96560a; --warn-soft:#fbefd9; --err:#b0271f; --err-soft:#fbe6e3; --code:#f0f3ee; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0e1411; --panel:#161e19; --ink:#e6eee8; --muted:#9aaba0; --line:#2a362e; --accent:#5fd08c; --ok:#5fd08c; --ok-soft:#1d3327;
+            --warn:#f0b55a; --warn-soft:#3a2d14; --err:#f58a80; --err-soft:#3d1f1c; --code:#101713; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 20px 16px 40px; }
+  h1 { font-size: 20px; margin: 0 0 4px; } h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 10px; }
+  p { margin: 6px 0; } .muted { color: var(--muted); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; margin-top: 14px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  button { font: inherit; font-weight: 600; padding: 8px 16px; border-radius: 6px; border: 1px solid transparent; background: var(--accent); color: #fff; cursor: pointer; }
+  @media (prefers-color-scheme: dark) { button { color: #0e1411; } }
+  button.ghost { background: transparent; color: var(--accent); border-color: var(--line); }
+  button:disabled { opacity: .5; cursor: default; }
+  .banner { padding: 10px 14px; border-radius: 6px; margin-top: 14px; }
+  .banner.err { background: var(--err-soft); color: var(--err); } .banner.warn { background: var(--warn-soft); color: var(--warn); } .banner.ok { background: var(--ok-soft); color: var(--ok); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .tile { border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; }
+  .tile .label { font-size: 12px; color: var(--muted); } .tile .value { font: 600 22px ui-monospace, Menlo, Consolas, monospace; }
+  .tile .unit { font-size: 12px; color: var(--muted); font-weight: 400; }
+  ul.checks { list-style: none; margin: 0; padding: 0; } ul.checks li { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-top: 1px solid var(--line); }
+  ul.checks li:first-child { border-top: 0; }
+  .pill { min-width: 62px; text-align: center; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; background: var(--code); color: var(--muted); }
+  .pill.pass { background: var(--ok-soft); color: var(--ok); } .pill.fail { background: var(--err-soft); color: var(--err); } .pill.wait { background: var(--warn-soft); color: var(--warn); }
+  canvas { width: 100%; height: 180px; display: block; border: 1px solid var(--line); border-radius: 6px; background: var(--code); }
+  pre { margin: 0; padding: 10px 12px; background: var(--code); border: 1px solid var(--line); border-radius: 8px; overflow: auto; max-height: 180px;
+        font: 12.5px ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; }
+  code { font: 13px ui-monospace, Menlo, Consolas, monospace; }
+  table { width: 100%; border-collapse: collapse; font: 13px ui-monospace, Menlo, Consolas, monospace; }
+  th, td { text-align: left; padding: 5px 10px 5px 0; border-top: 1px solid var(--line); }
+  th { font: 600 12px system-ui, sans-serif; color: var(--muted); border-top: 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>SwingLab bat sensor test</h1>
+  <p class="muted">Connects to the bat over Bluetooth and shows what it sends, read exactly the way the dashboard reads it. No sign-in needed. Use it with stage 5 and stage 8.</p>
+
+  <div id="support"></div>
+
+  <div class="card">
+    <div class="row">
+      <button id="connect" type="button">Connect to the bat</button>
+      <button id="disconnect" type="button" class="ghost" disabled>Disconnect</button>
+      <button id="simulate" type="button" class="ghost">Try with a simulated bat</button>
+      <span id="state" class="muted">Not connected.</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Checks</h2>
+    <ul class="checks">
+      <li><span class="pill" id="c-rate">waiting</span><span>Readings arrive about 50 times a second. <span class="muted" id="c-rate-note"></span></span></li>
+      <li><span class="pill" id="c-size">waiting</span><span>Each packet is 14 bytes or more. <span class="muted" id="c-size-note"></span></span></li>
+      <li><span class="pill" id="c-gravity">waiting</span><span>Held still, total acceleration is close to 1 g. <span class="muted" id="c-gravity-note"></span></span></li>
+      <li><span class="pill" id="c-rest">waiting</span><span>Held still, bat speed is 0. <span class="muted" id="c-rest-note"></span></span></li>
+    </ul>
+    <p class="muted">The last two only mean something while the bat is lying still. Then swing it and watch the speed.</p>
+  </div>
+
+  <div class="card">
+    <h2>Live values</h2>
+    <div class="grid">
+      <div class="tile"><div class="label">Bat speed</div><div class="value"><span id="v-speed">0.0</span> <span class="unit">km/h</span></div></div>
+      <div class="tile"><div class="label">Peak speed</div><div class="value"><span id="v-peak">0.0</span> <span class="unit">km/h</span></div></div>
+      <div class="tile"><div class="label">Total acceleration</div><div class="value"><span id="v-acc">0.00</span> <span class="unit">g</span></div></div>
+      <div class="tile"><div class="label">Total rotation</div><div class="value"><span id="v-rot">0</span> <span class="unit">deg/s</span></div></div>
+      <div class="tile"><div class="label">Shot direction</div><div class="value" id="v-dir">-</div></div>
+      <div class="tile"><div class="label">Readings per second</div><div class="value" id="v-rate">0</div></div>
+      <div class="tile"><div class="label">Battery</div><div class="value" id="v-battery">-</div></div>
+    </div>
+    <div class="grid" style="margin-top:10px">
+      <div class="tile"><div class="label">ax</div><div class="value"><span id="v-ax">0.00</span> <span class="unit">g</span></div></div>
+      <div class="tile"><div class="label">ay</div><div class="value"><span id="v-ay">0.00</span> <span class="unit">g</span></div></div>
+      <div class="tile"><div class="label">az</div><div class="value"><span id="v-az">0.00</span> <span class="unit">g</span></div></div>
+      <div class="tile"><div class="label">gx</div><div class="value"><span id="v-gx">0</span> <span class="unit">deg/s</span></div></div>
+      <div class="tile"><div class="label">gy</div><div class="value"><span id="v-gy">0</span> <span class="unit">deg/s</span></div></div>
+      <div class="tile"><div class="label">gz</div><div class="value"><span id="v-gz">0</span> <span class="unit">deg/s</span></div></div>
+    </div>
+    <div class="row" style="margin-top:12px"><button id="resetPeak" type="button" class="ghost">Reset peak</button>
+      <span class="muted">Total packets: <span id="v-total">0</span>. Last packet: <code id="v-hex">-</code></span></div>
+  </div>
+
+  <div class="card">
+    <h2>The last packet, taken apart</h2>
+    <table>
+      <thead><tr><th>Value</th><th>Bytes, as sent</th><th>As one number</th><th>Counts</th><th>Divided by</th><th>Result</th></tr></thead>
+      <tbody id="fields"></tbody>
+    </table>
+    <p class="muted">Each value is two bytes, low byte first. This table is refreshed five times a second, the packets arrive ten times as often.</p>
+  </div>
+
+  <div class="card">
+    <h2>Bat speed, last 8 seconds</h2>
+    <canvas id="chart" width="940" height="180"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>Log</h2>
+    <pre id="log"></pre>
+  </div>
+</main>
+
+<script>
+"use strict";
+
+// Must match the firmware (config.h of stage 8) and the web app.
+const SERVICE_UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
+const SENSOR_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8";
+const NAME_PREFIX = "SwingLab";
+
+const $ = id => document.getElementById(id);
+const state = { device: null, characteristic: null, simulation: null, total: 0, inThisSecond: 0, rate: 0, peak: 0,
+                speeds: [], lastAcc: 0, lastSpeed: 0, smallestPacket: Infinity, lastView: null };
+
+const FIELDS = [["ax", 4096, "g", 3], ["ay", 4096, "g", 3], ["az", 4096, "g", 3], ["gx", 16.4, "deg/s", 1], ["gy", 16.4, "deg/s", 1], ["gz", 16.4, "deg/s", 1], ["temperature", 0, "", 0]];
+
+/** Shows how the 14 bytes become seven numbers. */
+function showFields() {
+  const view = state.lastView;
+  if (!view || view.byteLength < 14) return;
+  const hex = n => n.toString(16).toUpperCase().padStart(2, "0");
+  const rows = FIELDS.map(([name, scale, unit, digits], i) => {
+    const low = view.getUint8(i * 2), high = view.getUint8(i * 2 + 1), counts = view.getInt16(i * 2, true);
+    const result = scale ? (counts / scale).toFixed(digits) + " " + unit : "not used by the dashboard";
+    return [name, hex(low) + " " + hex(high), "0x" + hex(high) + hex(low), String(counts), scale ? String(scale) : "", result];
+  });
+  const body = $("fields");
+  body.textContent = "";
+  for (const row of rows) {
+    const tr = document.createElement("tr");
+    for (const cell of row) { const td = document.createElement("td"); td.textContent = cell; tr.append(td); }
+    body.append(tr);
+  }
+}
+
+function log(text) {
+  const time = new Date().toLocaleTimeString();
+  $("log").textContent = time + "  " + text + "\n" + $("log").textContent;
+}
+
+function setCheck(id, result, note) {
+  const pill = $(id);
+  pill.className = "pill " + result;
+  pill.textContent = result === "pass" ? "pass" : result === "fail" ? "fail" : "waiting";
+  $(id + "-note").textContent = note || "";
+}
+
+/** The same arithmetic as the dashboard: counts to units, then speed, impact and direction. */
+function decode(view) {
+  if (view.byteLength < 14) return null;
+  const d = {
+    ax: view.getInt16(0, true) / 4096.0, ay: view.getInt16(2, true) / 4096.0, az: view.getInt16(4, true) / 4096.0,
+    gx: view.getInt16(6, true) / 16.4, gy: view.getInt16(8, true) / 16.4, gz: view.getInt16(10, true) / 16.4,
+  };
+  let rotation = Math.sqrt(d.gx * d.gx + d.gy * d.gy + d.gz * d.gz);
+  d.rotation = rotation;
+  if (rotation < 5) rotation = 0;
+  d.speed = Math.min(rotation * (Math.PI / 180) * 0.85 * 3.6, 180);
+  d.acc = Math.sqrt(d.ax * d.ax + d.ay * d.ay + d.az * d.az);
+  d.direction = d.gz > 1 ? "leg" : d.gz < -1 ? "off" : "straight";
+  return d;
+}
+
+function onPacket(view) {
+  state.total++;
+  state.inThisSecond++;
+  state.smallestPacket = Math.min(state.smallestPacket, view.byteLength);
+  const d = decode(view);
+  let hex = "";
+  for (let i = 0; i < view.byteLength; i++) hex += view.getUint8(i).toString(16).padStart(2, "0");
+  $("v-hex").textContent = hex;
+  $("v-total").textContent = state.total;
+  state.lastView = view;
+  if (!d) return;
+
+  state.lastAcc = d.acc;
+  state.lastSpeed = d.speed;
+  state.peak = Math.max(state.peak, d.speed);
+  state.speeds.push(d.speed);
+  if (state.speeds.length > 400) state.speeds.shift();
+
+  $("v-speed").textContent = d.speed.toFixed(1);
+  $("v-peak").textContent = state.peak.toFixed(1);
+  $("v-acc").textContent = d.acc.toFixed(2);
+  $("v-rot").textContent = d.rotation.toFixed(0);
+  $("v-dir").textContent = d.direction;
+  for (const k of ["ax", "ay", "az"]) $("v-" + k).textContent = d[k].toFixed(2);
+  for (const k of ["gx", "gy", "gz"]) $("v-" + k).textContent = d[k].toFixed(0);
+}
+
+function everySecond() {
+  state.rate = state.inThisSecond;
+  state.inThisSecond = 0;
+  $("v-rate").textContent = state.rate;
+  const active = state.characteristic || state.simulation;
+  if (!active) return;
+  if (state.total === 0) { setCheck("c-rate", "wait", "No readings yet."); return; }
+  setCheck("c-rate", state.rate >= 40 && state.rate <= 60 ? "pass" : "fail", "Now " + state.rate + " per second.");
+  setCheck("c-size", state.smallestPacket >= 14 ? "pass" : "fail", "Smallest seen: " + state.smallestPacket + " bytes.");
+  setCheck("c-gravity", state.lastAcc > 0.9 && state.lastAcc < 1.1 ? "pass" : "wait", "Now " + state.lastAcc.toFixed(2) + " g.");
+  setCheck("c-rest", state.lastSpeed === 0 ? "pass" : "wait", "Now " + state.lastSpeed.toFixed(1) + " km/h.");
+}
+
+function drawChart() {
+  const canvas = $("chart"), ctx = canvas.getContext("2d");
+  const style = getComputedStyle(document.documentElement);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const top = Math.max(40, ...state.speeds) * 1.1;
+  ctx.strokeStyle = style.getPropertyValue("--line"); ctx.fillStyle = style.getPropertyValue("--muted"); ctx.font = "11px sans-serif"; ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = canvas.height - 14 - (canvas.height - 28) * i / 4;
+    ctx.beginPath(); ctx.moveTo(34, y); ctx.lineTo(canvas.width - 6, y); ctx.stroke();
+    ctx.fillText((top * i / 4).toFixed(0), 4, y + 4);
+  }
+  if (state.speeds.length > 1) {
+    ctx.strokeStyle = style.getPropertyValue("--accent"); ctx.lineWidth = 2; ctx.beginPath();
+    state.speeds.forEach((speed, i) => {
+      const x = 34 + (canvas.width - 40) * i / 399;
+      const y = canvas.height - 14 - (canvas.height - 28) * speed / top;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+  }
+  requestAnimationFrame(drawChart);
+}
+
+function setButtons() {
+  const busy = Boolean(state.characteristic || state.simulation);
+  $("connect").disabled = busy || !navigator.bluetooth;
+  $("simulate").disabled = busy;
+  $("disconnect").disabled = !busy;
+}
+
+function resetCounters() {
+  Object.assign(state, { total: 0, inThisSecond: 0, peak: 0, speeds: [], smallestPacket: Infinity });
+  for (const id of ["c-rate", "c-size", "c-gravity", "c-rest"]) setCheck(id, "wait", "");
+}
+
+async function connect() {
+  try {
+    log("Looking for a device whose name starts with \"" + NAME_PREFIX + "\"...");
+    const device = await navigator.bluetooth.requestDevice({
+      filters: [{ namePrefix: NAME_PREFIX }, { services: [SERVICE_UUID] }],
+      optionalServices: [SERVICE_UUID, "battery_service"],   // the battery level is only there with the stage 7 parts
+    });
+    $("state").textContent = "Connecting to " + (device.name || "the bat") + "...";
+    device.addEventListener("gattserverdisconnected", () => {
+      log("Disconnected.");
+      state.device = null; state.characteristic = null;
+      $("state").textContent = "Disconnected.";
+      $("v-battery").textContent = "-";
+      setButtons();
+    });
+    const server = await device.gatt.connect();
+    const service = await server.getPrimaryService(SERVICE_UUID);
+    const characteristic = await service.getCharacteristic(SENSOR_UUID);
+    characteristic.addEventListener("characteristicvaluechanged", event => onPacket(event.target.value));
+    await characteristic.startNotifications();
+    readBattery(server);
+    resetCounters();
+    state.device = device; state.characteristic = characteristic;
+    $("state").textContent = "Connected to " + (device.name || "the bat") + ".";
+    log("Connected to " + (device.name || "unnamed device") + ". Readings should now arrive.");
+  } catch (error) {
+    if (error.name === "NotFoundError") {
+      log("No device was chosen. Is the bat powered, with its light blinking slowly?");
+    } else {
+      log("Could not connect: " + error.message);
+    }
+    $("state").textContent = "Not connected.";
+  }
+  setButtons();
+}
+
+/** The standard Bluetooth battery value. The bat offers it only when it can measure its battery. */
+async function readBattery(server) {
+  const show = value => { $("v-battery").textContent = value.getUint8(0) + " %"; };
+  try {
+    const service = await server.getPrimaryService("battery_service");
+    const level = await service.getCharacteristic("battery_level");
+    show(await level.readValue());
+    level.addEventListener("characteristicvaluechanged", event => show(event.target.value));
+    await level.startNotifications();
+    log("The bat reports its battery level.");
+  } catch {
+    $("v-battery").textContent = "not measured";
+    log("The bat does not report a battery level. That is normal without the stage 7 parts.");
+  }
+}
+
+function disconnect() {
+  if (state.simulation) { clearInterval(state.simulation); state.simulation = null; log("Simulation stopped."); $("state").textContent = "Not connected."; }
+  if (state.device && state.device.gatt.connected) state.device.gatt.disconnect();
+  setButtons();
+}
+
+/** Makes packets the way the firmware does, so this page can be tried without a bat. */
+function simulate() {
+  resetCounters();
+  let tick = 0;
+  log("Simulated bat started. These numbers are made up by this page, not measured.");
+  $("state").textContent = "Simulated bat. Not real data.";
+  state.simulation = setInterval(() => {
+    const phase = (tick % 150) / 150;            // one swing every 3 seconds
+    const swing = phase > 0.6 && phase < 0.8 ? Math.sin((phase - 0.6) / 0.2 * Math.PI) : 0;
+    const values = [
+      0.02 + swing * 1.5, 0.01 + swing * 2.0, 1.0 + swing * 0.5,   // g
+      -swing * 250, swing * 1100, swing * 60,                      // deg/s
+    ];
+    const view = new DataView(new ArrayBuffer(14));
+    for (let i = 0; i < 3; i++) view.setInt16(i * 2, Math.round(values[i] * 4096), true);
+    for (let i = 3; i < 6; i++) view.setInt16(i * 2, Math.round(values[i] * 16.4), true);
+    onPacket(view);
+    tick++;
+  }, 20);
+  setButtons();
+}
+
+(function start() {
+  const support = $("support");
+  const add = (cls, text) => { const div = document.createElement("div"); div.className = "banner " + cls; div.textContent = text; support.append(div); };
+  if (!window.isSecureContext) {
+    add("err", "This page must be opened from http://localhost or an https address. Opened as a file, the browser blocks Bluetooth. The README of stage 5 has the one command that serves it.");
+  }
+  if (!navigator.bluetooth) {
+    add("err", "This browser has no Web Bluetooth. Use Chrome or Edge on a computer or on Android. Safari and Firefox do not support it.");
+  } else {
+    add("ok", "This browser supports Web Bluetooth.");
+  }
+  $("connect").addEventListener("click", connect);
+  $("disconnect").addEventListener("click", disconnect);
+  $("simulate").addEventListener("click", simulate);
+  $("resetPeak").addEventListener("click", () => { state.peak = 0; $("v-peak").textContent = "0.0"; });
+  resetCounters();
+  setButtons();
+  setInterval(everySecond, 1000);
+  setInterval(showFields, 200);
+  requestAnimationFrame(drawChart);
+  log("Ready.");
+})();
+</script>
+</body>
+</html>

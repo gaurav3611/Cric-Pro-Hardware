@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 600" width="1240" height="600">
+<rect width="1240" height="600" fill="#ffffff"/>
+<text x="30" y="38" font-size="20" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">The 14-byte packet</text>
+<text x="30" y="60" font-size="13" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">What the bat sends 50 times a second, and how the dashboard reads it. The example was taken during a swing.</text>
+<rect x="60" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="97.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">35</text>
+<text x="97.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 0</text>
+<rect x="140" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="177.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">05</text>
+<text x="177.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 1</text>
+<rect x="220" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="257.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">72</text>
+<text x="257.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 2</text>
+<rect x="300" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="337.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">03</text>
+<text x="337.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 3</text>
+<rect x="380" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="417.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">12</text>
+<text x="417.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 4</text>
+<rect x="460" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="497.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">10</text>
+<text x="497.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 5</text>
+<rect x="540" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="577.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">40</text>
+<text x="577.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 6</text>
+<rect x="620" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="657.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">FD</text>
+<text x="657.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 7</text>
+<rect x="700" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="737.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">06</text>
+<text x="737.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 8</text>
+<rect x="780" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="817.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">0B</text>
+<text x="817.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 9</text>
+<rect x="860" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="897.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">4C</text>
+<text x="897.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 10</text>
+<rect x="940" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="977.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">01</text>
+<text x="977.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 11</text>
+<rect x="1020" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="1057.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">00</text>
+<text x="1057.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 12</text>
+<rect x="1100" y="110" width="74" height="52" rx="6" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="1137.0" y="143" font-size="20" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">00</text>
+<text x="1137.0" y="100" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">byte 13</text>
+<path d="M64,176 L210,176" fill="none" stroke="#c62828" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="137" y="200" font-size="15" text-anchor="middle" font-weight="bold" fill="#c62828" font-family="Helvetica, Arial, sans-serif">ax</text>
+<text x="137" y="222" font-size="13" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">0x0535</text>
+<text x="137" y="242" font-size="12" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">= 1333 counts</text>
+<text x="137" y="262" font-size="12" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">/ 4096</text>
+<text x="137" y="284" font-size="14" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">+0.325 g</text>
+<path d="M224,176 L370,176" fill="none" stroke="#c62828" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="297" y="200" font-size="15" text-anchor="middle" font-weight="bold" fill="#c62828" font-family="Helvetica, Arial, sans-serif">ay</text>
+<text x="297" y="222" font-size="13" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">0x0372</text>
+<text x="297" y="242" font-size="12" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">= 882 counts</text>
+<text x="297" y="262" font-size="12" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">/ 4096</text>
+<text x="297" y="284" font-size="14" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">+0.215 g</text>
+<path d="M384,176 L530,176" fill="none" stroke="#c62828" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="457" y="200" font-size="15" text-anchor="middle" font-weight="bold" fill="#c62828" font-family="Helvetica, Arial, sans-serif">az</text>
+<text x="457" y="222" font-size="13" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">0x1012</text>
+<text x="457" y="242" font-size="12" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">= 4114 counts</text>
+<text x="457" y="262" font-size="12" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">/ 4096</text>
+<text x="457" y="284" font-size="14" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">+1.004 g</text>
+<path d="M544,176 L690,176" fill="none" stroke="#1565c0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="617" y="200" font-size="15" text-anchor="middle" font-weight="bold" fill="#1565c0" font-family="Helvetica, Arial, sans-serif">gx</text>
+<text x="617" y="222" font-size="13" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">0xFD40</text>
+<text x="617" y="242" font-size="12" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">= -704 counts</text>
+<text x="617" y="262" font-size="12" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">/ 16.4</text>
+<text x="617" y="284" font-size="14" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">-42.9 deg/s</text>
+<path d="M704,176 L850,176" fill="none" stroke="#1565c0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="777" y="200" font-size="15" text-anchor="middle" font-weight="bold" fill="#1565c0" font-family="Helvetica, Arial, sans-serif">gy</text>
+<text x="777" y="222" font-size="13" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">0x0B06</text>
+<text x="777" y="242" font-size="12" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">= 2822 counts</text>
+<text x="777" y="262" font-size="12" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">/ 16.4</text>
+<text x="777" y="284" font-size="14" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">+172.1 deg/s</text>
+<path d="M864,176 L1010,176" fill="none" stroke="#1565c0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="937" y="200" font-size="15" text-anchor="middle" font-weight="bold" fill="#1565c0" font-family="Helvetica, Arial, sans-serif">gz</text>
+<text x="937" y="222" font-size="13" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">0x014C</text>
+<text x="937" y="242" font-size="12" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">= 332 counts</text>
+<text x="937" y="262" font-size="12" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">/ 16.4</text>
+<text x="937" y="284" font-size="14" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">+20.2 deg/s</text>
+<path d="M1024,176 L1170,176" fill="none" stroke="#8a959b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1097" y="200" font-size="15" text-anchor="middle" font-weight="bold" fill="#58675e" font-family="Helvetica, Arial, sans-serif">temperature</text>
+<text x="1097" y="222" font-size="13" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">0x0000</text>
+<text x="1097" y="242" font-size="12" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">= 0 counts</text>
+<text x="1097" y="262" font-size="12" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">not used by</text>
+<text x="1097" y="280" font-size="12" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">the dashboard</text>
+<rect x="30" y="320" width="1180" height="256" rx="8" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="50" y="348" font-size="14" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">What the dashboard does with these six numbers</text>
+<text x="50" y="376" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Total rotation   = square root of gx squared + gy squared + gz squared                    = 178.5 degrees per second</text>
+<text x="50" y="398" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Bat speed        = total rotation x pi / 180 x 0.85 m x 3.6                               = 9.5 km/h</text>
+<text x="50" y="420" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Impact           = square root of ax squared + ay squared + az squared                    = 1.08 g</text>
+<text x="50" y="442" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Shot direction   = leg side if gz is above +1, off side if below -1, otherwise straight   = leg side</text>
+<text x="50" y="476" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Low byte first. The number 0x0B06 travels as 06 then 0B. Both ends must agree on this, and on the order of the seven numbers.</text>
+<text x="50" y="498" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Signed. Each number runs from -32768 to +32767. A value with its top bit set is negative: 0xFD40 is -704.</text>
+<text x="50" y="520" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Why counts and not units. Seven whole numbers fit in 14 bytes. The same values as text, as stage 9 sends them over WiFi, need about 110 bytes.</text>
+<text x="50" y="542" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">The scale, 4096 and 16.4, comes from the sensor's ranges of 8 g and 2000 degrees per second. Change a range and both ends have to change.</text>
+</svg>

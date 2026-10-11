@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 560" width="1240" height="560">
+<rect width="1240" height="560" fill="#ffffff"/>
+<text x="30" y="38" font-size="20" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">From a swing to a number on the screen</text>
+<text x="30" y="60" font-size="13" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">What each part does, and what travels between them.</text>
+<rect x="30" y="110" width="180" height="170" rx="10" fill="#eceff1" stroke="#90a4ae" stroke-width="2" fill-opacity="1"/>
+<text x="120" y="140" font-size="15" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Bat</text>
+<text x="120" y="168" font-size="12" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">The bat turns</text>
+<text x="120" y="186" font-size="12" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">and speeds up.</text>
+<rect x="250" y="110" width="180" height="170" rx="10" fill="#2f5d50" stroke="none" stroke-width="2" fill-opacity="1"/>
+<text x="340" y="140" font-size="15" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">BMI160 sensor</text>
+<text x="340" y="168" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">Measures acceleration</text>
+<text x="340" y="186" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">and rotation 100 times</text>
+<text x="340" y="204" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">a second. Keeps the</text>
+<text x="340" y="222" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">newest six numbers</text>
+<text x="340" y="240" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">in its registers.</text>
+<rect x="520" y="110" width="180" height="170" rx="10" fill="#1f2a44" stroke="none" stroke-width="2" fill-opacity="1"/>
+<text x="610" y="140" font-size="15" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">ESP32-C3</text>
+<text x="610" y="168" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">Asks for the numbers</text>
+<text x="610" y="186" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">50 times a second,</text>
+<text x="610" y="204" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">takes off the still</text>
+<text x="610" y="222" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">value and packs them</text>
+<text x="610" y="240" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">into 14 bytes.</text>
+<rect x="790" y="110" width="180" height="170" rx="10" fill="#34495e" stroke="none" stroke-width="2" fill-opacity="1"/>
+<text x="880" y="140" font-size="15" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">Chrome or Edge</text>
+<text x="880" y="168" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">The browser's Web</text>
+<text x="880" y="186" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">Bluetooth receives</text>
+<text x="880" y="204" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">each packet and</text>
+<text x="880" y="222" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">hands it to the page.</text>
+<rect x="1030" y="110" width="180" height="170" rx="10" fill="#0c1420" stroke="none" stroke-width="2" fill-opacity="1"/>
+<text x="1120" y="140" font-size="15" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">SwingLab dashboard</text>
+<text x="1120" y="168" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">Unpacks the numbers</text>
+<text x="1120" y="186" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">and works out bat</text>
+<text x="1120" y="204" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">speed, impact and</text>
+<text x="1120" y="222" font-size="12" text-anchor="middle" font-weight="normal" fill="#d5dde2" font-family="Helvetica, Arial, sans-serif">shot direction.</text>
+<path d="M214,195.0 L238,195.0" fill="none" stroke="#17221c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M246,195.0 L234,188.0 L234,202.0 Z" fill="#17221c"/>
+<text x="230.0" y="310" font-size="13" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">movement</text>
+<text x="230.0" y="330" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">nothing electrical:</text>
+<text x="230.0" y="346" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">the sensor is fixed</text>
+<text x="230.0" y="362" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">to the bat</text>
+<path d="M434,195.0 L508,195.0" fill="none" stroke="#17221c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M516,195.0 L504,188.0 L504,202.0 Z" fill="#17221c"/>
+<text x="475.0" y="310" font-size="13" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">I2C</text>
+<text x="475.0" y="330" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">2 wires, SDA and SCL</text>
+<text x="475.0" y="346" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">12 bytes per reading</text>
+<text x="475.0" y="362" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">ESP32 asks, sensor answers</text>
+<path d="M704,195.0 L778,195.0" fill="none" stroke="#17221c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M786,195.0 L774,188.0 L774,202.0 Z" fill="#17221c"/>
+<text x="745.0" y="310" font-size="13" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Bluetooth LE</text>
+<text x="745.0" y="330" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">radio, no wires</text>
+<text x="745.0" y="346" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">14 bytes, 50 a second</text>
+<text x="745.0" y="362" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">the bat pushes (notify)</text>
+<path d="M974,195.0 L1018,195.0" fill="none" stroke="#17221c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1026,195.0 L1014,188.0 L1014,202.0 Z" fill="#17221c"/>
+<text x="1000.0" y="310" font-size="13" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">in the computer</text>
+<text x="1000.0" y="330" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">a JavaScript event</text>
+<text x="1000.0" y="346" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">per packet</text>
+<text x="1000.0" y="310" font-size="1" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif"></text>
+<rect x="520" y="440" width="180" height="60" rx="10" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="610" y="466" font-size="13" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">ESP32-C3</text>
+<text x="610" y="484" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">stage 9, optional</text>
+<rect x="1030" y="440" width="180" height="60" rx="10" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="1120" y="466" font-size="13" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">The API</text>
+<text x="1120" y="484" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">java-cricket-backend</text>
+<path d="M704,470 L1018,470" fill="none" stroke="#58675e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1026,470 L1014,463 L1014,477 Z" fill="#58675e"/>
+<text x="865" y="460" font-size="13" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">WiFi, then HTTP</text>
+<text x="865" y="488" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">one POST request per reading, as JSON text, 10 a second</text>
+<text x="30" y="460" font-size="13" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">The other road in:</text>
+<text x="30" y="480" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">the same readings can go straight to the backend,</text>
+<text x="30" y="497" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">without a browser. The dashboard does not need this.</text>
+</svg>

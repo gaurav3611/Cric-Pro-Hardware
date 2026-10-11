@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 520" width="1240" height="520">
+<rect width="1240" height="520" fill="#ffffff"/>
+<text x="30" y="38" font-size="20" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">One reading on the I2C wires</text>
+<text x="30" y="60" font-size="13" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">What passes along the SDA wire when the ESP32 fetches the 12 data bytes. Time runs from left to right.</text>
+<rect x="30" y="130" width="58" height="54" rx="5" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="59.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">START</text>
+<text x="59.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">ESP32 takes</text>
+<text x="59.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">the bus</text>
+<rect x="92" y="130" width="100" height="54" rx="5" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="142.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">0x68 + write</text>
+<text x="142.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">the sensor's</text>
+<text x="142.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">address, and</text>
+<text x="142.0" y="234" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">"I will write"</text>
+<rect x="196" y="130" width="42" height="54" rx="5" fill="#2f5d50" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="217.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">ACK</text>
+<text x="217.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">sensor:</text>
+<text x="217.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">"here"</text>
+<rect x="242" y="130" width="56" height="54" rx="5" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="270.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">0x0C</text>
+<text x="270.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">the register</text>
+<text x="270.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">the data</text>
+<text x="270.0" y="234" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">starts at</text>
+<rect x="302" y="130" width="42" height="54" rx="5" fill="#2f5d50" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="323.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">ACK</text>
+<text x="323.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">"got it"</text>
+<rect x="348" y="130" width="58" height="54" rx="5" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="377.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">START</text>
+<text x="377.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">again, without</text>
+<text x="377.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">letting go</text>
+<rect x="410" y="130" width="96" height="54" rx="5" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="458.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">0x68 + read</text>
+<text x="458.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">the address</text>
+<text x="458.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">again, and</text>
+<text x="458.0" y="234" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">"now I read"</text>
+<rect x="510" y="130" width="42" height="54" rx="5" fill="#2f5d50" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="531.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">ACK</text>
+<text x="531.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">"here"</text>
+<rect x="556" y="130" width="58" height="54" rx="5" fill="#2f5d50" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="585.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">byte 1</text>
+<text x="585.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">rotation x,</text>
+<text x="585.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">low byte</text>
+<rect x="618" y="130" width="42" height="54" rx="5" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="639.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">ACK</text>
+<text x="639.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">ESP32:</text>
+<text x="639.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">"more"</text>
+<rect x="664" y="130" width="58" height="54" rx="5" fill="#2f5d50" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="693.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">byte 2</text>
+<text x="693.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">rotation x,</text>
+<text x="693.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">high byte</text>
+<rect x="726" y="130" width="42" height="54" rx="5" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="747.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">ACK</text>
+<text x="747.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">"more"</text>
+<rect x="772" y="130" width="40" height="54" rx="5" fill="#b0bec5" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="792.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">...</text>
+<text x="792.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">bytes</text>
+<text x="792.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">3 to 11</text>
+<rect x="816" y="130" width="62" height="54" rx="5" fill="#2f5d50" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="847.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">byte 12</text>
+<text x="847.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">acceleration</text>
+<text x="847.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">z, high byte</text>
+<rect x="882" y="130" width="50" height="54" rx="5" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="907.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">NACK</text>
+<text x="907.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">"that is</text>
+<text x="907.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">enough"</text>
+<rect x="936" y="130" width="52" height="54" rx="5" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="962.0" y="162.0" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">STOP</text>
+<text x="962.0" y="204" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">bus is</text>
+<text x="962.0" y="219" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">free</text>
+<rect x="30" y="250" width="22" height="16" rx="3" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="60" y="263" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">the ESP32 is talking</text>
+<rect x="230" y="250" width="22" height="16" rx="3" fill="#2f5d50" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="260" y="263" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">the sensor is talking</text>
+<rect x="30" y="300" width="1180" height="196" rx="8" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="50" y="328" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Two wires, shared by every device. SCL is the clock: the ESP32 ticks it, and one bit of data moves on SDA with every tick. Nobody talks unless the ESP32 asks.</text>
+<text x="50" y="350" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Address. Every device has a number. This sensor is 0x68 when its SAO pin is joined to GND and 0x69 when SAO is joined to 3.3 volts. Only the device called answers.</text>
+<text x="50" y="372" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Register. Inside the sensor the values sit in numbered boxes. 0x0C is the first of twelve boxes holding the newest reading. After each byte the sensor moves on to</text>
+<text x="50" y="394" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">the next box by itself, which is why one request brings all twelve.</text>
+<text x="50" y="416" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">ACK. After every byte the receiver pulls SDA low for one tick to say "got it". No ACK after the address means nobody is there: that is what stage 2 looks for.</text>
+<text x="50" y="438" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Speed. Stage 2 and 3 use 100 000 ticks a second. Later stages use 400 000, and the whole exchange above then takes about a third of a millisecond.</text>
+<text x="50" y="460" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Pull-up resistors hold both wires at 3.3 volts when nobody pulls them low. The GY-BMI160 board has them built in, so none are added in this kit.</text>
+</svg>

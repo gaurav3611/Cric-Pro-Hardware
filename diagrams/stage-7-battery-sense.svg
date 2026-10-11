@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560">
+<rect width="1000" height="560" fill="#ffffff"/>
+<text x="30" y="38" font-size="20" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Stage 7 (optional): measuring the battery</text>
+<text x="30" y="60" font-size="13" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">Two equal resistors halve the battery voltage, so the pin never sees more than it can take.</text>
+<circle cx="110" cy="220" r="7" fill="#c62828" stroke="none" stroke-width="1"/>
+<text x="110" y="176" font-size="12" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">switch output</text>
+<text x="110" y="192" font-size="12" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">battery +</text>
+<text x="110" y="250" font-size="12" text-anchor="middle" font-weight="normal" fill="#c62828" font-family="Helvetica, Arial, sans-serif">3.3 to 4.2 V</text>
+<path d="M110,220 L210,220" fill="none" stroke="#c62828" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="210" y="211" width="60" height="18" rx="2" fill="#ffffff" stroke="#17221c" stroke-width="2" fill-opacity="1"/>
+<text x="240.0" y="204" font-size="12" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">R1</text>
+<text x="240.0" y="247" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">100 k</text>
+<path d="M270,220 L380,220" fill="none" stroke="#2e7d32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="380" cy="220" r="6" fill="#2e7d32" stroke="none" stroke-width="1"/>
+<path d="M380,220 L470,220" fill="none" stroke="#2e7d32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="470" y="211" width="60" height="18" rx="2" fill="#ffffff" stroke="#17221c" stroke-width="2" fill-opacity="1"/>
+<text x="500.0" y="204" font-size="12" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">R2</text>
+<text x="500.0" y="247" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">100 k</text>
+<path d="M530,220 L610,220" fill="none" stroke="#212121" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M610,220 L610,230" fill="none" stroke="#212121" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M597,230 L623,230" fill="none" stroke="#212121" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M602,236 L618,236" fill="none" stroke="#212121" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M607,242 L613,242" fill="none" stroke="#212121" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="610" y="272" font-size="12" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">GND</text>
+<path d="M380,220 L380,130" fill="none" stroke="#2e7d32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="318" y="96" width="124" height="34" rx="6" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="380" y="118" font-size="13" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">ESP32 GPIO0</text>
+<text x="452" y="118" font-size="12" text-anchor="start" font-weight="normal" fill="#2e7d32" font-family="Helvetica, Arial, sans-serif">1.65 to 2.1 V</text>
+<path d="M380,220 L380,300" fill="none" stroke="#2e7d32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M367,300 L393,300" fill="none" stroke="#17221c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M367,308 L393,308" fill="none" stroke="#17221c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="400" y="302" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">C1</text>
+<text x="400" y="317" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">100 nF</text>
+<path d="M380,308 L380,340" fill="none" stroke="#212121" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M380,340 L380,350" fill="none" stroke="#212121" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M367,350 L393,350" fill="none" stroke="#212121" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M372,356 L388,356" fill="none" stroke="#212121" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M377,362 L383,362" fill="none" stroke="#212121" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="660" y="96" width="310" height="290" rx="8" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="678" y="124" font-size="14" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">How it works</text>
+<text x="678" y="150" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">The same small current flows through</text>
+<text x="678" y="167" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">R1 and then R2. Because they are equal,</text>
+<text x="678" y="184" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">each drops half of the battery voltage.</text>
+<text x="678" y="201" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">The point between them is at half.</text>
+<text x="678" y="218" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif"></text>
+<text x="678" y="235" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">pin = battery x R2 / (R1 + R2)</text>
+<text x="678" y="252" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif"></text>
+<text x="678" y="269" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">4.2 V at the battery is 2.1 V at the pin.</text>
+<text x="678" y="286" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">The pin measures up to about 2.5 V.</text>
+<text x="678" y="303" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif"></text>
+<text x="678" y="320" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">The firmware multiplies by 2 again.</text>
+<text x="678" y="337" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">C1 holds the voltage steady for the</text>
+<text x="678" y="354" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">moment the chip takes its measurement.</text>
+<rect x="30" y="420" width="940" height="116" rx="8" fill="#f3f5f1" stroke="#dde4dc" stroke-width="1" fill-opacity="1"/>
+<text x="48" y="446" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Take the battery voltage after the switch and before the diode. Then the resistors draw nothing while the bat is switched off.</text>
+<text x="48" y="468" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">With 200 kilohm in total they draw 21 millionths of an amp while it is on, which the cell does not notice.</text>
+<text x="48" y="490" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Resistors are never exactly equal. Stage 7 shows how to compare with a multimeter once and correct the difference.</text>
+<text x="48" y="512" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Change the resistors and the firmware has to know: BATTERY_DIVIDER_RATIO in config.h is (R1 + R2) / R2.</text>
+</svg>
