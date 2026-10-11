@@ -1,7 +1,7 @@
 /*
   Every setting of the bat firmware, in one place.
 
-  Change things here, not in the other files. docs/make-changes.md explains what each
+  Change things here, not in the other files. docs/make-changes.pdf explains what each
   change does to the rest of the system.
 */
 #pragma once

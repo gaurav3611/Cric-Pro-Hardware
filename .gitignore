@@ -4,3 +4,8 @@ __pycache__/
 # build output, if a tool is pointed at this folder
 /build/
 *.o
+
+# The guides and the stage pages are published as PDF. Their Markdown sources stay on the
+# author's computer. README.md at the top is the one Markdown document that is published.
+/docs/*.md
+/stages/*/README.md

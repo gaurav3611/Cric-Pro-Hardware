@@ -12,6 +12,8 @@
     2. Packet and battery arithmetic
                          swing_packet.h and battery.h are built for this computer and compared with
                          answers worked out separately here, and with the web app's own decoder
+                         README.md and the 15 PDF documents are there, and no PDF is older than what it
+                         was made from.
     3. Every sketch in the simulator
                          tools/sim runs each sketch against a pretend sensor, battery and dashboard.
                          What the sketch prints, sends and does with its light is checked.
@@ -21,6 +23,7 @@
   It cannot check soldering, real radio range or a real battery. Only the board can.
 */
 import { execFileSync, spawnSync } from "node:child_process";
+import { MANIFEST, fingerprint, sources } from "./make_pdfs.mjs";
 import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
@@ -44,6 +47,10 @@ function check(name, ok, detail = "") {
 const equal = (name, actual, expected) => check(name, JSON.stringify(actual) === JSON.stringify(expected), `expected ${JSON.stringify(expected)} but was ${JSON.stringify(actual)}`);
 const read = file => readFileSync(file, "utf8");
 const stageDirs = readdirSync(STAGES).filter(d => existsSync(join(STAGES, d, d + ".ino"))).sort();
+// README.md is the front page and is always there. Every other document is published as a PDF.
+// The Markdown sources of those are kept out of the repository, so a downloaded copy has none,
+// and the checks that read them are skipped there.
+const hasSources = existsSync(join(ROOT, "docs", "how-it-works.md"));
 
 // ------------------------------------------------------------------------------------------------
 // The web app's own code, when its project is next to this folder. It is the other end of the wire.
@@ -137,7 +144,7 @@ for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_swinglab_bat"
   }
   check("every sketch uses the same pins", wrong.length === 0, wrong.join("; ") + ". Change them all, then PINS at the top of tools/check.mjs, the drawings and the README.");
 
-  const readme = existsSync(join(ROOT, "README.md")) ? read(join(ROOT, "README.md")) : "";
+  const readme = read(join(ROOT, "README.md"));
   const rows = [`\`GPIO${PINS.SDA_PIN}\` | \`SDA\``, `\`GPIO${PINS.SCL_PIN}\` | \`SCL\``, `\`GPIO${PINS.BATTERY_PIN}\` | middle of R1 and R2`];
   check("the connection table in README.md names the same pins", rows.every(r => readme.includes(r)), "missing: " + rows.filter(r => !readme.includes(r)).join(" ; "));
   const drawings = existsSync(join(ROOT, "diagrams", "make_diagrams.py")) ? read(join(ROOT, "diagrams", "make_diagrams.py")) : "";
@@ -160,19 +167,40 @@ for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_swinglab_bat"
   // The soldering guide must list every wire and every part position of the layout the drawing script checked.
   const drawings = read(join(ROOT, "diagrams", "make_diagrams.py"));
   const links = [...drawings.matchAll(/^    \("([A-Z]\d+)", "([A-Z]\d+)", (?:RED|BLACK|ORANGE|BLUE|GREEN), /gm)].map(m => `| ${m[1]} | ${m[2]} |`);
-  const guide = existsSync(join(ROOT, "docs", "build-on-zero-pcb.md")) ? read(join(ROOT, "docs", "build-on-zero-pcb.md")) : "";
-  check(`the soldering guide lists all ${links.length} wires of the zero PCB layout`, links.length === 15 && links.every(l => guide.includes(l)), "missing: " + links.filter(l => !guide.includes(l)).join("  "));
+  const guide = hasSources ? read(join(ROOT, "docs", "build-on-zero-pcb.md")) : "";
+  if (hasSources) check(`the soldering guide lists all ${links.length} wires of the zero PCB layout`, links.length === 15 && links.every(l => guide.includes(l)), "missing: " + links.filter(l => !guide.includes(l)).join("  "));
   const holes = Object.fromEntries([...drawings.matchAll(/"((?:SW|D1|R1|R2|C1|TP)\.[^"]+)": "([A-Z]\d+)"/g)].map(m => [m[1], m[2]]));
   const parts = [["D1", "D1.cathode", "D1.anode"], ["SW1", "SW.b", "SW.common", "SW.a"], ["R1", "R1.1", "R1.2"], ["R2", "R2.1", "R2.2"], ["C1", "C1.1", "C1.2"], ["OUT+", "TP.OUT+"], ["OUT-", "TP.OUT-"]];
   const lost = parts.filter(([name, ...pins]) => !guide.split("\n").some(line => line.includes(name) && pins.every(p => line.includes(holes[p]))));
-  check("the soldering guide puts every part in the holes of the layout", Object.keys(holes).length === 13 && lost.length === 0, "check the rows for: " + lost.map(l => l[0]).join(", "));
+  if (hasSources) check("the soldering guide puts every part in the holes of the layout", Object.keys(holes).length === 13 && lost.length === 0, "check the rows for: " + lost.map(l => l[0]).join(", "));
 
   const wifi = read(join(STAGES, "09_wifi_to_api", "09_wifi_to_api.ino"));
   check("the WiFi sketch holds no real network name or password", wifi.includes('"YOUR_WIFI_NAME"') && wifi.includes('"YOUR_WIFI_PASSWORD"'), "put the placeholders back before sharing the file");
 }
 
 {
+  // The published documents: five guides, one page per stage, and all drawings in one file. README.md is the front page.
+  const made = JSON.parse(read(MANIFEST));
+  const pdfs = [...Object.keys(made.documents).map(f => f.replace(/\.md$/, ".pdf")), "diagrams/diagrams.pdf"];
+  const bad = pdfs.filter(f => !existsSync(join(ROOT, f)) || readFileSync(join(ROOT, f)).subarray(0, 5).toString() !== "%PDF-" || readFileSync(join(ROOT, f)).length < 20000);
+  check(`all ${pdfs.length} PDF documents are there: five guides, a page for each of the ${stageDirs.length} stages, and the drawings`,
+    pdfs.length === 15 && stageDirs.every(s => pdfs.includes(`stages/${s}/README.pdf`)) && bad.length === 0, "missing or not a PDF: " + bad.join(", "));
+  const strays = ["README.pdf"].filter(f => existsSync(join(ROOT, f)));
+  check("the front page exists once, as README.md", existsSync(join(ROOT, "README.md")) && strays.length === 0, "remove: " + strays.join(", "));
+  if (!hasSources) {
+    console.log("      The Markdown sources of the documents are not in this copy, so the checks that read them are skipped.");
+  } else {
+    // A PDF must not be older than what it was made from: its source, the drawings, or the tool that makes it.
+    const now = fingerprint();
+    const stale = [...new Set([...Object.keys(now.documents), ...Object.keys(made.documents)])].filter(f => now.documents[f] !== made.documents[f]);
+    check("every PDF was made from the Markdown source, the drawings and the tool as they are now",
+      stale.length === 0 && now.drawings === made.drawings && now.tool === made.tool && sources().length === Object.keys(made.documents).length,
+      (stale.length ? "changed since: " + stale.join(", ") + ". " : now.drawings !== made.drawings ? "the drawings changed. " : "tools/make_pdfs.mjs changed. ") + "Run: node tools/make_pdfs.mjs");
+  }
+}
+{
   // Every link from one document to another file, or to a heading, has to lead somewhere.
+  // README.md is checked in every copy. The other documents are checked where their sources are.
   const documents = ["README.md", ...readdirSync(join(ROOT, "docs")).map(f => "docs/" + f), ...stageDirs.map(s => `stages/${s}/README.md`)].filter(f => f.endsWith(".md") && existsSync(join(ROOT, f)));
   const anchorsOf = text => new Set([...text.matchAll(/^#{1,6}\s+(.+)$/gm)].map(m => m[1].trim().toLowerCase().replace(/[^\w\- ]/g, "").replace(/ /g, "-")));
   const broken = [];
@@ -186,8 +214,11 @@ for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_swinglab_bat"
       if (anchor && target.endsWith(".md") && !anchorsOf(read(target)).has(anchor)) broken.push(`${doc}: no heading for #${anchor} in ${path || doc}`);
     }
   }
-  check(`the ${documents.length} documents link only to files and headings that exist`, broken.length === 0, broken.join("\n           "));
-  check("every stage has its own page", stageDirs.length === 9 && stageDirs.every(s => existsSync(join(STAGES, s, "README.md"))));
+  check(`${documents.length === 1 ? "README.md links" : "the " + documents.length + " documents link"} only to files and headings that exist`, broken.length === 0, broken.join("\n           "));
+  // In the published copy README.md must not point at a Markdown file that is not published.
+  const toSources = [...read(join(ROOT, "README.md")).matchAll(/\]\(([^)\s#]+\.md)[^)]*\)/g)].map(m => m[1]);
+  check("README.md links to the PDFs, not to Markdown files that are left out of the repository", toSources.length === 0, toSources.join(", "));
+  if (hasSources) check("every stage has its own page in the sources", stageDirs.length === 9 && stageDirs.every(s => existsSync(join(STAGES, s, "README.md"))));
 }
 
 // ------------------------------------------------------------------------------------------------

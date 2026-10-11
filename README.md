@@ -32,7 +32,7 @@ So follow the stages in order, and trust the labels printed on your own boards o
 
 Tools: a soldering iron and solder, a multimeter, wire cutters, insulating tape or heat-shrink tube, and double-sided foam tape for mounting.
 
-**[docs/parts-to-buy.md](docs/parts-to-buy.md) is the shopping list:** the exact name to search for, how many, and what to check before paying.
+**[docs/parts-to-buy.pdf](docs/parts-to-buy.pdf) is the shopping list:** the exact name to search for, how many, and what to check before paying.
 
 ## Before you touch the battery
 
@@ -46,19 +46,19 @@ A LiPo cell stores a lot of energy and can catch fire when it is mistreated.
 
 ## The stages
 
-Do them in order. Each folder under [stages/](stages/) holds one sketch and a README with the steps.
+Do them in order. Each folder under [stages/](stages/) holds one sketch and a page, `README.pdf`, with the steps. The links in the table open those pages.
 
 | Stage | What you add | What you learn | It works when |
 |---|---|---|---|
-| [1. Blink](stages/01_blink/) | The ESP32 board and a USB cable | Uploading, the Serial Monitor, outputs and inputs | The light blinks and lines appear |
-| [2. I2C scan](stages/02_i2c_scan/) | The sensor, on five wires | What I2C is, and addresses | It prints `RESULT: PASS` |
-| [3. Read the sensor](stages/03_imu_read/) | Nothing | Registers, bytes, counts and units | Four checks pass and z reads 1 g |
-| [4. Swing speed](stages/04_swing_speed/) | Nothing | Calibration, and the speed formula | A swing prints a speed |
-| [5. Bluetooth](stages/05_ble_stream/) | Nothing | Advertising, connecting, notifications, the packet | The test page shows 50 readings a second |
-| [6. Battery](stages/06_battery_power/) | Cell, charger, switch, diode | Where the power flows, charging, brownouts | It runs with no cable and counts no brownouts |
-| [7. Battery level](stages/07_battery_level/) | Optional: two resistors, one capacitor | Measuring a voltage | The printed voltage matches a multimeter |
-| [8. The bat firmware](stages/08_swinglab_bat/) | Nothing | How it all fits together | The dashboard records a shot |
-| [9. WiFi](stages/09_wifi_to_api/) | Optional: nothing | WiFi, HTTP and JSON | The API lists the bat as online |
+| [1. Blink](stages/01_blink/README.pdf) | The ESP32 board and a USB cable | Uploading, the Serial Monitor, outputs and inputs | The light blinks and lines appear |
+| [2. I2C scan](stages/02_i2c_scan/README.pdf) | The sensor, on five wires | What I2C is, and addresses | It prints `RESULT: PASS` |
+| [3. Read the sensor](stages/03_imu_read/README.pdf) | Nothing | Registers, bytes, counts and units | Four checks pass and z reads 1 g |
+| [4. Swing speed](stages/04_swing_speed/README.pdf) | Nothing | Calibration, and the speed formula | A swing prints a speed |
+| [5. Bluetooth](stages/05_ble_stream/README.pdf) | Nothing | Advertising, connecting, notifications, the packet | The test page shows 50 readings a second |
+| [6. Battery](stages/06_battery_power/README.pdf) | Cell, charger, switch, diode | Where the power flows, charging, brownouts | It runs with no cable and counts no brownouts |
+| [7. Battery level](stages/07_battery_level/README.pdf) | Optional: two resistors, one capacitor | Measuring a voltage | The printed voltage matches a multimeter |
+| [8. The bat firmware](stages/08_swinglab_bat/README.pdf) | Nothing | How it all fits together | The dashboard records a shot |
+| [9. WiFi](stages/09_wifi_to_api/README.pdf) | Optional: nothing | WiFi, HTTP and JSON | The API lists the bat as online |
 
 Stages 1 to 5 run from the USB cable. The battery comes in at stage 6, when everything else is known to work.
 
@@ -91,7 +91,7 @@ More drawings:
 - [The sensor on five wires](diagrams/stage-2-sensor-wiring.svg)
 - [Where the power flows](diagrams/stage-6-power.svg)
 - [Measuring the battery](diagrams/stage-7-battery-sense.svg)
-- [Zero PCB layout, hole by hole](diagrams/zero-pcb-layout.svg), with the steps in [docs/build-on-zero-pcb.md](docs/build-on-zero-pcb.md)
+- [Zero PCB layout, hole by hole](diagrams/zero-pcb-layout.svg), with the steps in [docs/build-on-zero-pcb.pdf](docs/build-on-zero-pcb.pdf)
 
 ## Is the TP4056 the right charger?
 
@@ -99,7 +99,7 @@ Yes. The chip is called TP4056. There is no common charger called TP4050, so tha
 
 - **What it does.** It charges one LiPo cell from 5 volts. It holds the current steady until the cell reaches 4.2 volts, then holds 4.2 volts until the current has dropped to a tenth, and then stops.
 - **Get the version with protection.** It has six pads instead of four, and two extra small chips. They disconnect the cell when it is drained below about 2.4 volts, charged above about 4.3 volts, or shorted.
-- **The charging current is 1 amp as sold.** That suits a 1500 mAh cell: cells are normally charged at up to their capacity per hour, which here is 1.5 amps. A full charge takes about two hours. To charge more gently, see [docs/make-changes.md](docs/make-changes.md#charge-more-slowly-or-use-another-cell).
+- **The charging current is 1 amp as sold.** That suits a 1500 mAh cell: cells are normally charged at up to their capacity per hour, which here is 1.5 amps. A full charge takes about two hours. To charge more gently, see [docs/make-changes.pdf](docs/make-changes.pdf).
 - **The ESP32-C3 Super Mini has no charger of its own**, which is why this module is needed.
 - **It is not a switch and not a regulator.** The slide switch turns the bat off. The regulator on the ESP32 board makes the 3.3 volts.
 
@@ -118,25 +118,27 @@ If an upload cannot connect: hold the BOOT button, press and release RESET, rele
 
 ## How it works, and how to change it
 
-- [docs/parts-to-buy.md](docs/parts-to-buy.md) is the shopping list.
-- [docs/how-it-works.md](docs/how-it-works.md) explains the whole chain: what the sensor measures, the I2C conversation, the packet, Bluetooth, the arithmetic of the dashboard, and the power circuit.
-- [docs/make-changes.md](docs/make-changes.md) says what else has to change when you change a pin, a part, the name, the rate or the battery.
-- [docs/build-on-zero-pcb.md](docs/build-on-zero-pcb.md) is the soldering guide.
-- [docs/troubleshooting.md](docs/troubleshooting.md) lists what can go wrong, by what you see.
+- [docs/parts-to-buy.pdf](docs/parts-to-buy.pdf) is the shopping list.
+- [docs/how-it-works.pdf](docs/how-it-works.pdf) explains the whole chain: what the sensor measures, the I2C conversation, the packet, Bluetooth, the arithmetic of the dashboard, and the power circuit.
+- [docs/make-changes.pdf](docs/make-changes.pdf) says what else has to change when you change a pin, a part, the name, the rate or the battery.
+- [docs/build-on-zero-pcb.pdf](docs/build-on-zero-pcb.pdf) is the soldering guide.
+- [docs/troubleshooting.pdf](docs/troubleshooting.pdf) lists what can go wrong, by what you see.
 
 ## What is in this folder
 
 | Path | What it is |
 |---|---|
-| `stages/01_blink` to `stages/09_wifi_to_api` | One Arduino sketch per stage, each with its own README. |
+| `stages/01_blink` to `stages/09_wifi_to_api` | One Arduino sketch per stage, each with its own page, `README.pdf`. |
 | `stages/08_swinglab_bat/` | The firmware that stays on the bat. Its settings are in `config.h`. |
 | `stages/*/bmi160.h` | The sensor driver. The same file in three folders, because the Arduino IDE only compiles files inside a sketch's own folder. |
 | `stages/*/swing_packet.h` | Builds the 14-byte packet. This is the agreement with the web app. |
 | `stages/*/battery.h` | Battery voltage to percent. |
 | `diagrams/` | Every drawing as SVG, and `make_diagrams.py`, which draws them. |
-| `docs/` | The five guides listed above. |
+| `docs/` | The five guides listed above, as PDF. |
+| `diagrams/diagrams.pdf` | All drawings in one file, one per page, for printing. |
 | `tools/ble_test.html` | A page that connects to the bat from a browser and shows what it sends. |
 | `tools/check.mjs` | Checks the whole kit without hardware. |
+| `tools/make_pdfs.mjs` | Makes the PDFs from their Markdown sources. Those sources are kept out of the repository. This README is the only Markdown document in it. |
 | `tools/sim/` | The simulator that `check.mjs` uses to run the sketches on a computer. |
 
 ## Check the kit without hardware

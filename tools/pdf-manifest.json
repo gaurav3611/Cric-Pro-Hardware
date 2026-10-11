@@ -1,0 +1,20 @@
+{
+  "tool": "e628812e08d99ca2d1fa7f9040a2ca52696d5592f71e7ebc1995bbf9c7ff8c47",
+  "drawings": "b84718dc4514e9b5af5723d25bf0cf01ecf908a28eee4d00b157ae113bb24aeb",
+  "documents": {
+    "docs/build-on-zero-pcb.md": "e5cbb91ca248303b045be6c1261eb7d4d1a1d65a8f66d32ae25ee675cf7eed60",
+    "docs/how-it-works.md": "a8e53eb7a61623f4c02e116845cc219976a7001c25a0c6da5e198ac2b621bb26",
+    "docs/make-changes.md": "78c7993f213217a535a6fbc1a999eb337aa4b072a5667a04f23bb8f7fef88ab0",
+    "docs/parts-to-buy.md": "3b362f4cf0e26f2e7abdcab47932f3767ae12ea95b571fd1ade38f35b25b42f4",
+    "docs/troubleshooting.md": "6250f624961a50aac825647e90c88fde1953a3e1dd72eb7299475cffd459b78d",
+    "stages/01_blink/README.md": "7f49e5c99de13d304365b6d13031cfcf1aef193424e680acdd4a20990838db8c",
+    "stages/02_i2c_scan/README.md": "817fccce6ad659df0a0f38113ca595a395ab57e45da9521ba8b7dd7a7d2a6313",
+    "stages/03_imu_read/README.md": "fa623c088f9a288047d9ba615ab6a7bf2625a165ba266371bd986f8d7bbb4a99",
+    "stages/04_swing_speed/README.md": "5f1f875cb95225d4ec02afa7dbbf7a264bc135882c955eea251e47b5c06425df",
+    "stages/05_ble_stream/README.md": "4f7139bf7f82a94faa298c1885746fbe656a61fe7220236713380979999136a9",
+    "stages/06_battery_power/README.md": "f2154a4b1965f5e146c5a3e91c1d52041a45c37acbe7f434b1375d7b58d362e8",
+    "stages/07_battery_level/README.md": "389e361faf51e0ed559ea3d0db5ea4806f9710b770de235b4644a76e438b2e04",
+    "stages/08_swinglab_bat/README.md": "41d791a7a350bf28d0c3a90c5c1ada130e5c65f3085dbaa92aedc75e46d26f5d",
+    "stages/09_wifi_to_api/README.md": "f43b5c51dbb4928912290452421e03fac33ffb24d30bc4c1c4227ee0eeb1dc45"
+  }
+}
