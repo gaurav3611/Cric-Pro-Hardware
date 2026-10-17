@@ -578,10 +578,11 @@ def holes_between(a, b):
     return [f"{COLS[c1 + (c2 - c1) * i // max(steps, 1)]}{r1 + (r2 - r1) * i // max(steps, 1)}" for i in range(steps + 1)]
 
 
-def check_layout():
+def check_layout(placed=None, links=None, nets=None):
     """Every net of NETS must be made by the layout, and no two nets may be joined."""
+    placed, links, nets = placed or PLACED, links or LINKS, nets or NETS
     holes = {}
-    for pin, hole in PLACED.items():
+    for pin, hole in placed.items():
         if hole in holes:
             sys.exit(f"Layout error: {pin} and {holes[hole]} are both placed in hole {hole}")
         holes[hole] = pin
@@ -594,17 +595,17 @@ def check_layout():
             h = group[h]
         return h
 
-    for a, b, *_ in LINKS:
+    for a, b, *_ in links:
         group[find(a)] = find(b)
 
     made = {}
-    for pin, hole in PLACED.items():
+    for pin, hole in placed.items():
         made.setdefault(find(hole), set()).add(pin)
     net_of_hole = {hole: find(hole) for hole in holes}
     # A drawn wire may cross other wires, but it must not run through a pad that belongs to
     # another connection: in the drawing that would look like a joint, and on the board it
     # invites a solder bridge.
-    for a, b, *_ in LINKS:
+    for a, b, *_ in links:
         path = ROUTES.get((a, b), [a, b])
         if path[0] != a or path[-1] != b:
             sys.exit(f"Layout error: the drawn route of {a} to {b} does not start and end there")
@@ -613,8 +614,8 @@ def check_layout():
                 if hole in net_of_hole and net_of_hole[hole] != find(a):
                     sys.exit(f"Layout error: the wire {a} to {b} runs through hole {hole}, the pad of {holes[hole]}")
     made = {frozenset(pins) for pins in made.values() if len(pins) > 1}
-    on_board = lambda pin: pin in PLACED
-    wanted = {frozenset(p for p in pins if on_board(p)) for pins in NETS.values()}
+    on_board = lambda pin: pin in placed
+    wanted = {frozenset(p for p in pins if on_board(p)) for pins in nets.values()}
     wanted = {pins for pins in wanted if len(pins) > 1}
     if made != wanted:
         missing = [sorted(n) for n in wanted - made]
@@ -624,13 +625,30 @@ def check_layout():
     return len(wanted)
 
 
-def zero_pcb():
-    nets = check_layout()
+def without_diode():
+    """The kit's layout with a plain wire from L12 to H12 in place of D1."""
+    placed = {pin: hole for pin, hole in PLACED.items() if not pin.startswith("D1.")}
+    links = []
+    for a, b, colour, what, optional in LINKS:
+        if (a, b) == ("L14", "L12"):
+            links += [(a, b, colour, "switch output", optional), ("L12", "H12", RED, "a wire where the diode was", False)]
+        elif (a, b) == ("H12", "I2"):
+            links.append((a, b, colour, "on to 5V", optional))
+        else:
+            links.append((a, b, colour, what, optional))
+    nets = {name: pins for name, pins in NETS.items() if name not in ("VSW", "5V")}
+    nets["5V"] = ["SW.common", "R1.1", "ESP.5V"]   # with no diode, the switch output is the 5V line
+    return placed, links, nets
+
+
+def zero_pcb(diode=True):
+    placed, links, layout_nets = (PLACED, LINKS, NETS) if diode else without_diode()
+    nets = check_layout(placed, links, layout_nets)
     P, ox, oy = 34, 90, 160
     hx = lambda hole: ox + COLS.index(hole[0]) * P
     hy = lambda hole: oy + (int(hole[1:]) - 1) * P
-    width, height = ox + len(COLS) * P + 350, oy + ROWS * P + 260
-    d = Drawing(width, height, "Zero PCB layout, seen from the component side",
+    width, height = ox + len(COLS) * P + 350, oy + ROWS * P + 290
+    d = Drawing(width, height, "Zero PCB layout, seen from the component side" + ("" if diode else ", without the diode"),
                 "One arrangement that works. Each dot is a hole, 2.54 mm from the next. The wires run on the solder side and must be insulated.")
     d.rect(ox - P * 0.8, oy - P * 0.8, (len(COLS) - 1) * P + P * 1.6, (ROWS - 1) * P + P * 1.6, "#c8a165", "#8d6e3a", 8, 2)
     for c in COLS:
@@ -651,7 +669,7 @@ def zero_pcb():
     d.rect(hx("O1") - 2, hy("O5") + 4, 30, 30, "#1c2b26", rx=2)
 
     # ---- wires first, so the parts and pins sit on top of them ----
-    for a, b, colour, _, optional in LINKS:
+    for a, b, colour, _, optional in links:
         points = [(hx(h), hy(h)) for h in ROUTES.get((a, b), [a, b])]
         if (a, b) == ("M8", "M4"):
             d.wire(points, colour, 3, "7 5")
@@ -659,7 +677,7 @@ def zero_pcb():
             d.wire(points, colour, 4.5)
 
     used_esp = {"5V", "GND", "3V3", f"GPIO{PINS['SCL']}", f"GPIO{PINS['SDA']}", f"GPIO{PINS['BATTERY']}"}
-    for pin, hole in PLACED.items():
+    for pin, hole in placed.items():
         part, name = pin.split(".")
         x, y = hx(hole), hy(hole)
         if part == "ESP":
@@ -694,12 +712,15 @@ def zero_pcb():
     d.rect(hx("S13") - 9, hy("S13") - 13, 18, 26, "#e6a23c", INK, 6, 1.5)
     d.text(hx("S13") + 16, hy("S13") + 4, "C1", 10, weight="bold")
     pads("S12", "S14")
-    leads("H12", "L12")                                             # D1, cathode (the stripe) at H12
-    d.rect(hx("J12") - 32, hy("J12") - 9, 64, 18, "#424242", INK, 4, 1.5)
-    d.rect(hx("J12") - 27, hy("J12") - 9, 9, 18, "#eceff1", rx=1)
-    d.text(hx("J12") + 6, hy("J12") + 4, "D1", 10, "middle", "bold", "#ffffff")
-    d.text(hx("J12"), hy("J12") + 24, "stripe on the left", 9, "middle", fill=INK)
-    pads("H12", "L12")
+    if diode:
+        leads("H12", "L12")                                         # D1, cathode (the stripe) at H12
+        d.rect(hx("J12") - 32, hy("J12") - 9, 64, 18, "#424242", INK, 4, 1.5)
+        d.rect(hx("J12") - 27, hy("J12") - 9, 9, 18, "#eceff1", rx=1)
+        d.text(hx("J12") + 6, hy("J12") + 4, "D1", 10, "middle", "bold", "#ffffff")
+        d.text(hx("J12"), hy("J12") + 24, "stripe on the left", 9, "middle", fill=INK)
+        pads("H12", "L12")
+    else:
+        d.text(hx("J12"), hy("J12") + 24, "wire, no diode", 9, "middle", fill=INK)
     d.rect(hx("K14") - 16, hy("K14") - 13, 2 * P + 32, 26, "#263238", rx=4)   # SW1
     d.rect(hx("L14") + 2, hy("L14") + 13, 26, 12, "#b0bec5", "#546e7a", 2)
     d.text(hx("K14") - 24, hy("K14") + 4, "SW1", 10, "end", "bold")
@@ -735,7 +756,7 @@ def zero_pcb():
     d.text(lx, yy, "Wires, pad to pad", 14, weight="bold")
     yy += 26
     said_optional = False
-    for a, b, colour, what, optional in LINKS:
+    for a, b, colour, what, optional in links:
         if optional and not said_optional:
             said_optional = True
             yy += 8
@@ -749,7 +770,7 @@ def zero_pcb():
     yy += 12
     d.text(lx, yy, "Parts", 14, weight="bold")
     yy += 22
-    for line in ("D1   H12 (stripe) and L12", "SW1  K14, L14, M14", "R1   M12 and Q12", "R2   R12 and R16", "C1   S12 and S14",
+    for line in (("D1   H12 (stripe) and L12",) if diode else ()) + ("SW1  K14, L14, M14", "R1   M12 and Q12", "R2   R12 and R16", "C1   S12 and S14",
                  "OUT+ lead  N14", "OUT- lead  G14"):
         d.text(lx, yy, line, 12, mono=True)
         yy += 19
@@ -761,7 +782,10 @@ def zero_pcb():
         f"The script that drew this checked it: the layout makes all {nets} on-board connections of the circuit, joins nothing else, and no wire runs through another connection's pad.",
         "Some wires cross each other, which is why they must be insulated. The two leads from the charger are soldered at N14 and G14 and leave the board there.",
     ], 12, MUTED, 19)
-    return d.save("zero-pcb-layout.svg")
+    if diode:
+        return d.save("zero-pcb-layout.svg")
+    d.text(30, by + 4 * 19 + 10, "Without the diode: switch the battery off before plugging a USB cable into the ESP32, and on again after unplugging it.", 13, weight="bold", fill=WARN)
+    return d.save("zero-pcb-layout-no-diode.svg")
 
 
 # ---------------------------------------------------------------------------------------------
@@ -977,6 +1001,6 @@ def bluetooth():
 
 
 if __name__ == "__main__":
-    made = [pin_map(), sensor_wiring(), power_path(), battery_sense(), full_circuit(), zero_pcb(),
+    made = [pin_map(), sensor_wiring(), power_path(), battery_sense(), full_circuit(), zero_pcb(), zero_pcb(diode=False),
             data_flow(), i2c_read(), packet(), bluetooth()]
     print("drew " + ", ".join(made))

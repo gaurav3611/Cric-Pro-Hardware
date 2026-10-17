@@ -92,6 +92,7 @@ More drawings:
 - [Where the power flows](diagrams/stage-6-power.svg)
 - [Measuring the battery](diagrams/stage-7-battery-sense.svg)
 - [Zero PCB layout, hole by hole](diagrams/zero-pcb-layout.svg), with the steps in [docs/build-on-zero-pcb.pdf](docs/build-on-zero-pcb.pdf)
+- [The same layout without the diode](diagrams/zero-pcb-layout-no-diode.svg), with a wire in its place
 
 ## Is the TP4056 the right charger?
 
@@ -119,6 +120,7 @@ If an upload cannot connect: hold the BOOT button, press and release RESET, rele
 ## How it works, and how to change it
 
 - [docs/parts-to-buy.pdf](docs/parts-to-buy.pdf) is the shopping list.
+- [docs/phone-app.pdf](docs/phone-app.pdf) explains the phone app.
 - [docs/how-it-works.pdf](docs/how-it-works.pdf) explains the whole chain: what the sensor measures, the I2C conversation, the packet, Bluetooth, the arithmetic of the dashboard, and the power circuit.
 - [docs/make-changes.pdf](docs/make-changes.pdf) says what else has to change when you change a pin, a part, the name, the rate or the battery.
 - [docs/build-on-zero-pcb.pdf](docs/build-on-zero-pcb.pdf) is the soldering guide.
@@ -130,11 +132,13 @@ If an upload cannot connect: hold the BOOT button, press and release RESET, rele
 |---|---|
 | `stages/01_blink` to `stages/09_wifi_to_api` | One Arduino sketch per stage, each with its own page, `README.pdf`. |
 | `stages/08_swinglab_bat/` | The firmware that stays on the bat. Its settings are in `config.h`. |
+| `app/` | The same recorder as a web page. `recorder.js` holds its logic, which `tools/check.mjs` tests. |
+| `swinglab_bat_one_file/` | The same firmware as one file, for opening or pasting into the Arduino IDE on its own. `tools/make_one_file.mjs` makes it from stage 8. |
 | `stages/*/bmi160.h` | The sensor driver. The same file in three folders, because the Arduino IDE only compiles files inside a sketch's own folder. |
 | `stages/*/swing_packet.h` | Builds the 14-byte packet. This is the agreement with the web app. |
 | `stages/*/battery.h` | Battery voltage to percent. |
 | `diagrams/` | Every drawing as SVG, and `make_diagrams.py`, which draws them. |
-| `docs/` | The five guides listed above, as PDF. |
+| `docs/` | The six guides listed above, as PDF. |
 | `diagrams/diagrams.pdf` | All drawings in one file, one per page, for printing. |
 | `tools/ble_test.html` | A page that connects to the bat from a browser and shows what it sends. |
 | `tools/check.mjs` | Checks the whole kit without hardware. |
@@ -159,6 +163,12 @@ tools/sim/run.sh stages/04_swing_speed "swing@3000:400:900:1,end@6000"
 ```
 
 The words of the scenario are listed at the top of [tools/sim/sim_main.cpp](tools/sim/sim_main.cpp).
+
+## The phone app
+
+[mobile_app_swing](https://github.com/gaurav3611/mobile_app_swing) holds SwingLab recorder, an Android app written in Flutter, in its own repository. It connects to the bat, records each shot between Start and Stop, guesses the type of shot, and saves every reading as a CSV file in a folder per type, named like `pull_shot/pull_shot_001.csv`. Its README says how to build and install it.
+
+[app/](app/) is the same recorder as a web page for Chrome on Android, for phones where installing an app is not wanted. [docs/phone-app.pdf](docs/phone-app.pdf) explains it.
 
 ## Using it with the dashboard
 

@@ -1,0 +1,11 @@
+{
+  "name": "SwingLab recorder",
+  "short_name": "Recorder",
+  "description": "Records swings from the SwingLab bat sensor and saves each one as a CSV file.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f5f1",
+  "theme_color": "#1c7541",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

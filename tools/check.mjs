@@ -12,18 +12,20 @@
     2. Packet and battery arithmetic
                          swing_packet.h and battery.h are built for this computer and compared with
                          answers worked out separately here, and with the web app's own decoder
-                         README.md and the 15 PDF documents are there, and no PDF is older than what it
+                         README.md and the 16 PDF documents are there, and no PDF is older than what it
                          was made from.
     3. Every sketch in the simulator
                          tools/sim runs each sketch against a pretend sensor, battery and dashboard.
                          What the sketch prints, sends and does with its light is checked.
-    4. With --board      every sketch compiles for the real chip
+    4. The phone app     its packet reading, shot guess, CSV and file names, on a computer
+    5. With --board      every sketch compiles for the real chip
 
   It needs Node 22 or newer and a C++ compiler (c++, clang++ or g++).
   It cannot check soldering, real radio range or a real battery. Only the board can.
 */
 import { execFileSync, spawnSync } from "node:child_process";
 import { MANIFEST, fingerprint, sources } from "./make_pdfs.mjs";
+import { ONE_FILE, oneFile } from "./make_one_file.mjs";
 import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
@@ -174,6 +176,8 @@ for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_swinglab_bat"
   const lost = parts.filter(([name, ...pins]) => !guide.split("\n").some(line => line.includes(name) && pins.every(p => line.includes(holes[p]))));
   if (hasSources) check("the soldering guide puts every part in the holes of the layout", Object.keys(holes).length === 13 && lost.length === 0, "check the rows for: " + lost.map(l => l[0]).join(", "));
 
+  check("the one-file sketch is the stage 8 firmware as it is now", existsSync(ONE_FILE) && read(ONE_FILE) === oneFile(), "run: node tools/make_one_file.mjs");
+
   const wifi = read(join(STAGES, "09_wifi_to_api", "09_wifi_to_api.ino"));
   check("the WiFi sketch holds no real network name or password", wifi.includes('"YOUR_WIFI_NAME"') && wifi.includes('"YOUR_WIFI_PASSWORD"'), "put the placeholders back before sharing the file");
 }
@@ -183,8 +187,8 @@ for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_swinglab_bat"
   const made = JSON.parse(read(MANIFEST));
   const pdfs = [...Object.keys(made.documents).map(f => f.replace(/\.md$/, ".pdf")), "diagrams/diagrams.pdf"];
   const bad = pdfs.filter(f => !existsSync(join(ROOT, f)) || readFileSync(join(ROOT, f)).subarray(0, 5).toString() !== "%PDF-" || readFileSync(join(ROOT, f)).length < 20000);
-  check(`all ${pdfs.length} PDF documents are there: five guides, a page for each of the ${stageDirs.length} stages, and the drawings`,
-    pdfs.length === 15 && stageDirs.every(s => pdfs.includes(`stages/${s}/README.pdf`)) && bad.length === 0, "missing or not a PDF: " + bad.join(", "));
+  check(`all ${pdfs.length} PDF documents are there: six guides, a page for each of the ${stageDirs.length} stages, and the drawings`,
+    pdfs.length === 16 && stageDirs.every(s => pdfs.includes(`stages/${s}/README.pdf`)) && bad.length === 0, "missing or not a PDF: " + bad.join(", "));
   const strays = ["README.pdf"].filter(f => existsSync(join(ROOT, f)));
   check("the front page exists once, as README.md", existsSync(join(ROOT, "README.md")) && strays.length === 0, "remove: " + strays.join(", "));
   if (!hasSources) {
@@ -216,7 +220,8 @@ for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_swinglab_bat"
   }
   check(`${documents.length === 1 ? "README.md links" : "the " + documents.length + " documents link"} only to files and headings that exist`, broken.length === 0, broken.join("\n           "));
   // In the published copy README.md must not point at a Markdown file that is not published.
-  const toSources = [...read(join(ROOT, "README.md")).matchAll(/\]\(([^)\s#]+\.md)[^)]*\)/g)].map(m => m[1]);
+  // Only the guides and the stage pages are kept out (see .gitignore). Any other Markdown file is published.
+  const toSources = [...read(join(ROOT, "README.md")).matchAll(/\]\(([^)\s#]+\.md)[^)]*\)/g)].map(m => m[1]).filter(f => /^(docs\/[^/]+|stages\/[^/]+\/README)\.md$/.test(f));
   check("README.md links to the PDFs, not to Markdown files that are left out of the repository", toSources.length === 0, toSources.join(", "));
   if (hasSources) check("every stage has its own page in the sources", stageDirs.length === 9 && stageDirs.every(s => existsSync(join(STAGES, s, "README.md"))));
 }
@@ -386,24 +391,59 @@ function checkStream(label, r, { connected, quiet = [], swing, stillOffsets = 1 
 }
 
 // ------------------------------------------------------------------------------------------------
+console.log("\n4. The phone app's logic");
+// ------------------------------------------------------------------------------------------------
+{
+  const app = await import(join(ROOT, "app", "recorder.js"));
+  const view = hex => new DataView(Uint8Array.from(hex.match(/../g).map(h => parseInt(h, 16))).buffer);
+  const r = app.decodePacket(view("35057203121040fd060b4c010000"));     // the example packet of diagrams/packet.svg
+  equal("the app reads the example packet to the numbers the drawing shows", [r.ax_raw, r.gx_raw, r.gy_raw, r.gz_raw, r.ax_g.toFixed(3), r.gy_dps.toFixed(1), r.speed_kmh.toFixed(1)],
+    [1333, -704, 2822, 332, "0.325", "172.1", "9.5"]);
+  if (web) {
+    const s = web.packet.decodeSensorPacket(view("35057203121040fd060b4c010000"));
+    equal("the app and the web app read a packet the same way", [r.ax_g, r.ay_g, r.az_g, r.gx_dps, r.gy_dps, r.gz_dps, r.speed_kmh], [s.ax, s.ay, s.az, s.gx, s.gy, s.gz, web.analysis.instantSpeedKmh(s)]);
+    equal("the app's Bluetooth ids are the ones the web app uses", [app.SERVICE_UUID, app.SENSOR_UUID, app.NAME_PREFIX], [web.packet.BLE_SERVICE_UUID, web.packet.BLE_SENSOR_UUID, web.packet.BLE_NAME_PREFIX]);
+  }
+  check("the app turns away a packet that is too short", app.decodePacket(new DataView(new ArrayBuffer(10))) === null);
+
+  // A recording of n readings, 20 ms apart, with one swing in the middle: peak rotation around y, and a turn around z.
+  const recording = (peak, gz, n = 100) => Array.from({ length: n }, (_, i) => {
+    const k = i > 40 && i < 60 ? Math.sin((i - 40) / 20 * Math.PI) : 0;
+    const v = new DataView(new ArrayBuffer(14));
+    [0.02, 0.01, 1, -0.25 * peak * k, peak * k, gz * k].forEach((x, j) => v.setInt16(j * 2, Math.round(x * (j < 3 ? 4096 : 16.4)), true));
+    return { sample_index: i, timestamp_iso: new Date(1e12 + i * 20).toISOString(), timestamp_ms: 1e12 + i * 20, elapsed_ms: i * 20, ...app.decodePacket(v) };
+  });
+  equal("the first guess at the shot type follows its rules: slow, leg side, off side, straight, too short",
+    [recording(200, 0), recording(1100, 170), recording(1100, -170), recording(1100, 0), recording(1100, 170, 5)].map(x => app.classify(x).label),
+    ["defensive_shot", "pull_shot", "cut_shot", "drive_shot", "unknown"]);
+
+  const rows = app.toCsv(recording(1100, 170)).trim().split("\r\n").map(line => line.split(","));
+  check("a recording's CSV has a header and one complete row per reading", rows[0].join(",") === app.CSV_COLUMNS.join(",") && rows.length === 101 && rows.every(row => row.length === app.CSV_COLUMNS.length) &&
+    rows[1][1] === "2001-09-09T01:46:40.000Z" && rows[1][12] === "82", JSON.stringify(rows.slice(0, 2)));
+  equal("file names: numbered per type, cleaned up, and marked when simulated", [app.fileName("pull_shot", 1), app.fileName("Pull Shot", 12), app.fileName("cut_shot", 3, true)],
+    ["pull_shot_001.csv", "pull_shot_012.csv", "sim_cut_shot_003.csv"]);
+}
+
+// ------------------------------------------------------------------------------------------------
 if (withBoard) {
-  console.log("\n4. Every sketch compiles for the ESP32-C3 Super Mini");
+  console.log("\n5. Every sketch compiles for the ESP32-C3 Super Mini");
   const cli = [process.env.ARDUINO_CLI, "arduino-cli", "/Applications/Arduino IDE.app/Contents/Resources/app/lib/backend/resources/arduino-cli"].filter(Boolean).find(c => spawnSync(c, ["version"]).status === 0);
   if (!cli) {
     check("arduino-cli is available", false, "install the Arduino IDE, or set ARDUINO_CLI to the path of arduino-cli");
   } else {
     const compile = (stage, extra = []) => {
-      const result = spawnSync(cli, ["compile", "--fqbn", "esp32:esp32:nologo_esp32c3_super_mini", "--warnings", "all", "--build-path", join(WORK, "board-" + stage + extra.length), ...extra, join(STAGES, stage)], { encoding: "utf8" });
+      const folder = stage === "swinglab_bat_one_file" ? join(ROOT, stage) : join(STAGES, stage);
+      const result = spawnSync(cli, ["compile", "--fqbn", "esp32:esp32:nologo_esp32c3_super_mini", "--warnings", "all", "--build-path", join(WORK, "board-" + stage + extra.length), ...extra, folder], { encoding: "utf8" });
       const text = (result.stdout || "") + (result.stderr || "");
       const size = (text.match(/Sketch uses (\d+) bytes \((\d+)%\)/) || [])[2];
       const warnings = text.split("\n").filter(l => /warning:/.test(l));
       check(`${stage}${extra.length ? " with battery parts" : ""} compiles without warnings${size ? ", using " + size + "% of the program space" : ""}`, result.status === 0 && warnings.length === 0, (warnings[0] || text.split("\n").filter(l => /error/i.test(l))[0] || "").trim());
     };
-    for (const stage of stageDirs) compile(stage);
+    for (const stage of [...stageDirs, "swinglab_bat_one_file"]) compile(stage);
     compile("08_swinglab_bat", ["--build-property", "compiler.cpp.extra_flags=-DHAS_BATTERY_SENSE=1"]);
   }
 } else {
-  console.log("\n4. Compiling for the real chip was skipped. Run again with --board to include it.");
+  console.log("\n5. Compiling for the real chip was skipped. Run again with --board to include it.");
 }
 
 rmSync(WORK, { recursive: true, force: true });

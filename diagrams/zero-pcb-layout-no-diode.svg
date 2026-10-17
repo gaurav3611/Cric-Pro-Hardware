@@ -1,0 +1,540 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 994" width="1120" height="994">
+<rect width="1120" height="994" fill="#ffffff"/>
+<text x="30" y="38" font-size="20" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Zero PCB layout, seen from the component side, without the diode</text>
+<text x="30" y="60" font-size="13" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">One arrangement that works. Each dot is a hole, 2.54 mm from the next. The wires run on the solder side and must be insulated.</text>
+<rect x="62.8" y="132.8" width="700.4" height="564.4" rx="8" fill="#c8a165" stroke="#8d6e3a" stroke-width="2" fill-opacity="1"/>
+<text x="90" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">A</text>
+<circle cx="90" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="90" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="124" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">B</text>
+<circle cx="124" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="124" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="158" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">C</text>
+<circle cx="158" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="158" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="192" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">D</text>
+<circle cx="192" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="192" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="226" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">E</text>
+<circle cx="226" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="226" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="260" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">F</text>
+<circle cx="260" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="260" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="294" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">G</text>
+<circle cx="294" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="294" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="328" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">H</text>
+<circle cx="328" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="328" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="362" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">I</text>
+<circle cx="362" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="362" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="396" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">J</text>
+<circle cx="396" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="396" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="430" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">K</text>
+<circle cx="430" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="430" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="464" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">L</text>
+<circle cx="464" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="464" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="498" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">M</text>
+<circle cx="498" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="498" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="532" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">N</text>
+<circle cx="532" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="532" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="566" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">O</text>
+<circle cx="566" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="566" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="600" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">P</text>
+<circle cx="600" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="600" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="634" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">Q</text>
+<circle cx="634" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="634" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="668" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">R</text>
+<circle cx="668" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="668" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="702" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">S</text>
+<circle cx="702" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="702" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="736" y="109.0" font-size="11" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">T</text>
+<circle cx="736" cy="160" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="194" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="228" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="262" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="296" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="330" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="364" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="398" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="432" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="466" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="500" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="534" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="568" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="602" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="636" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<circle cx="736" cy="670" r="4.2" fill="#f7e9c8" stroke="#8d6e3a" stroke-width="1"/>
+<text x="54.3" y="164" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">1</text>
+<text x="54.3" y="198" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">2</text>
+<text x="54.3" y="232" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">3</text>
+<text x="54.3" y="266" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">4</text>
+<text x="54.3" y="300" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">5</text>
+<text x="54.3" y="334" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">6</text>
+<text x="54.3" y="368" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">7</text>
+<text x="54.3" y="402" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">8</text>
+<text x="54.3" y="436" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">9</text>
+<text x="54.3" y="470" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">10</text>
+<text x="54.3" y="504" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">11</text>
+<text x="54.3" y="538" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">12</text>
+<text x="54.3" y="572" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">13</text>
+<text x="54.3" y="606" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">14</text>
+<text x="54.3" y="640" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">15</text>
+<text x="54.3" y="674" font-size="11" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">16</text>
+<rect x="139.3" y="134.5" width="241.4" height="306.0" rx="10" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="0.88"/>
+<rect x="226" y="119.2" width="68" height="28" rx="5" fill="#b0b7bd" stroke="#6b7479" stroke-width="1" fill-opacity="1"/>
+<text x="260" y="137.56" font-size="10" text-anchor="middle" font-weight="normal" fill="#263238" font-family="Helvetica, Arial, sans-serif">USB-C</text>
+<text x="230" y="298" font-size="15" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">ESP32-C3</text>
+<text x="230" y="318" font-size="12" text-anchor="middle" font-weight="normal" fill="#cfd8dc" font-family="Helvetica, Arial, sans-serif">Super Mini</text>
+<rect x="479.3" y="173.6" width="156.4" height="244.8" rx="9" fill="#2f5d50" stroke="none" stroke-width="1" fill-opacity="0.9"/>
+<text x="580" y="266" font-size="13" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">GY-BMI160</text>
+<rect x="564" y="300" width="30" height="30" rx="2" fill="#1c2b26" stroke="none" stroke-width="1" fill-opacity="1"/>
+<path d="M362,262 L396,262 L396,194 L498,194" fill="none" stroke="#c62828" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M362,228 L464,228 L464,262 L498,262" fill="none" stroke="#212121" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M362,296 L498,296" fill="none" stroke="#e68a00" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M362,330 L498,330" fill="none" stroke="#1565c0" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M498,398 L430,398 L430,262 L498,262" fill="none" stroke="#212121" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<path d="M532,602 L498,602" fill="none" stroke="#c62828" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M464,602 L464,534" fill="none" stroke="#c62828" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M464,534 L328,534" fill="none" stroke="#c62828" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M328,534 L328,160 L362,160 L362,194" fill="none" stroke="#c62828" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M294,602 L294,228 L362,228" fill="none" stroke="#212121" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M464,534 L498,534" fill="none" stroke="#c62828" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M634,534 L668,534" fill="none" stroke="#2e7d32" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M668,534 L702,534" fill="none" stroke="#2e7d32" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M634,534 L634,466 L362,466 L362,432" fill="none" stroke="#2e7d32" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M702,602 L702,670 L668,670" fill="none" stroke="#212121" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M668,670 L294,670 L294,602" fill="none" stroke="#212121" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="158" cy="194" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="170" y="198" font-size="10" text-anchor="start" font-weight="normal" fill="#cfd8dc" font-family="Helvetica, Arial, sans-serif">5</text>
+<circle cx="158" cy="228" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="170" y="232" font-size="10" text-anchor="start" font-weight="normal" fill="#cfd8dc" font-family="Helvetica, Arial, sans-serif">6</text>
+<circle cx="158" cy="262" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="170" y="266" font-size="10" text-anchor="start" font-weight="normal" fill="#cfd8dc" font-family="Helvetica, Arial, sans-serif">7</text>
+<circle cx="158" cy="296" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="170" y="300" font-size="10" text-anchor="start" font-weight="normal" fill="#cfd8dc" font-family="Helvetica, Arial, sans-serif">8</text>
+<circle cx="158" cy="330" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="170" y="334" font-size="10" text-anchor="start" font-weight="normal" fill="#cfd8dc" font-family="Helvetica, Arial, sans-serif">9</text>
+<circle cx="158" cy="364" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="170" y="368" font-size="10" text-anchor="start" font-weight="normal" fill="#cfd8dc" font-family="Helvetica, Arial, sans-serif">10</text>
+<circle cx="158" cy="398" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="170" y="402" font-size="10" text-anchor="start" font-weight="normal" fill="#cfd8dc" font-family="Helvetica, Arial, sans-serif">20</text>
+<circle cx="158" cy="432" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="170" y="436" font-size="10" text-anchor="start" font-weight="normal" fill="#cfd8dc" font-family="Helvetica, Arial, sans-serif">21</text>
+<circle cx="362" cy="194" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="350" y="198" font-size="10" text-anchor="end" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">5V</text>
+<circle cx="362" cy="228" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="350" y="232" font-size="10" text-anchor="end" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">GND</text>
+<circle cx="362" cy="262" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="350" y="266" font-size="10" text-anchor="end" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">3V3</text>
+<circle cx="362" cy="296" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="350" y="300" font-size="10" text-anchor="end" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">4</text>
+<circle cx="362" cy="330" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="350" y="334" font-size="10" text-anchor="end" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">3</text>
+<circle cx="362" cy="364" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="350" y="368" font-size="10" text-anchor="end" font-weight="normal" fill="#90a4ae" font-family="Helvetica, Arial, sans-serif">2</text>
+<circle cx="362" cy="398" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="350" y="402" font-size="10" text-anchor="end" font-weight="normal" fill="#90a4ae" font-family="Helvetica, Arial, sans-serif">1</text>
+<circle cx="362" cy="432" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="350" y="436" font-size="10" text-anchor="end" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">0</text>
+<circle cx="498" cy="194" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="510" y="198" font-size="10" text-anchor="start" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">VIN</text>
+<circle cx="498" cy="228" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="510" y="232" font-size="10" text-anchor="start" font-weight="normal" fill="#8fb3a6" font-family="Helvetica, Arial, sans-serif">3V3</text>
+<circle cx="498" cy="262" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="510" y="266" font-size="10" text-anchor="start" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">GND</text>
+<circle cx="498" cy="296" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="510" y="300" font-size="10" text-anchor="start" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">SCL</text>
+<circle cx="498" cy="330" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="510" y="334" font-size="10" text-anchor="start" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">SDA</text>
+<circle cx="498" cy="364" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="510" y="368" font-size="10" text-anchor="start" font-weight="normal" fill="#8fb3a6" font-family="Helvetica, Arial, sans-serif">CS</text>
+<circle cx="498" cy="398" r="6.5" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="510" y="402" font-size="10" text-anchor="start" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">SAO</text>
+<path d="M498,534 L634,534" fill="none" stroke="#9e9e9e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="534" y="526" width="64" height="16" rx="4" fill="#e8dcc0" stroke="#17221c" stroke-width="1.5" fill-opacity="1"/>
+<text x="566" y="538" font-size="9" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">R1 100k</text>
+<circle cx="498" cy="534" r="5.5" fill="#cfd8dc" stroke="#546e7a" stroke-width="1"/>
+<circle cx="634" cy="534" r="5.5" fill="#cfd8dc" stroke="#546e7a" stroke-width="1"/>
+<path d="M668,534 L668,670" fill="none" stroke="#9e9e9e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="660" y="570" width="16" height="64" rx="4" fill="#e8dcc0" stroke="#17221c" stroke-width="1.5" fill-opacity="1"/>
+<text x="668" y="602" font-size="9" text-anchor="middle" fill="#17221c" font-family="Helvetica, Arial, sans-serif" transform="rotate(-90 668 602)" dy="3">R2 100k</text>
+<circle cx="668" cy="534" r="5.5" fill="#cfd8dc" stroke="#546e7a" stroke-width="1"/>
+<circle cx="668" cy="670" r="5.5" fill="#cfd8dc" stroke="#546e7a" stroke-width="1"/>
+<path d="M702,534 L702,602" fill="none" stroke="#9e9e9e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="693" y="555" width="18" height="26" rx="6" fill="#e6a23c" stroke="#17221c" stroke-width="1.5" fill-opacity="1"/>
+<text x="718" y="572" font-size="10" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">C1</text>
+<circle cx="702" cy="534" r="5.5" fill="#cfd8dc" stroke="#546e7a" stroke-width="1"/>
+<circle cx="702" cy="602" r="5.5" fill="#cfd8dc" stroke="#546e7a" stroke-width="1"/>
+<text x="396" y="558" font-size="9" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">wire, no diode</text>
+<rect x="414" y="589" width="100" height="26" rx="4" fill="#263238" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="466" y="615" width="26" height="12" rx="2" fill="#b0bec5" stroke="#546e7a" stroke-width="1" fill-opacity="1"/>
+<text x="406" y="606" font-size="10" text-anchor="end" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">SW1</text>
+<text x="464" y="642" font-size="9" text-anchor="middle" font-weight="normal" fill="#17221c" font-family="Helvetica, Arial, sans-serif">on = lever to the right</text>
+<circle cx="430" cy="602" r="5.5" fill="#cfd8dc" stroke="#546e7a" stroke-width="1"/>
+<circle cx="464" cy="602" r="5.5" fill="#cfd8dc" stroke="#546e7a" stroke-width="1"/>
+<circle cx="498" cy="602" r="5.5" fill="#cfd8dc" stroke="#546e7a" stroke-width="1"/>
+<circle cx="532" cy="602" r="7" fill="#c62828" stroke="none" stroke-width="1"/>
+<circle cx="294" cy="602" r="7" fill="#212121" stroke="none" stroke-width="1"/>
+<rect x="234" y="760" width="392" height="84" rx="8" fill="#3b4a5a" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="420.0" y="814" font-size="12" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">TP4056 charger, taped beside the board or to the bat</text>
+<rect x="206" y="786" width="32" height="34" rx="4" fill="#b0b7bd" stroke="#6b7479" stroke-width="1" fill-opacity="1"/>
+<text x="198" y="807" font-size="10" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">USB</text>
+<circle cx="294" cy="774" r="6" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="294" y="793" font-size="9" text-anchor="middle" font-weight="normal" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">OUT-</text>
+<circle cx="532" cy="774" r="6" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="532" y="793" font-size="9" text-anchor="middle" font-weight="normal" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">OUT+</text>
+<circle cx="568" cy="774" r="6" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="568" y="793" font-size="9" text-anchor="middle" font-weight="normal" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">B+</text>
+<circle cx="604" cy="774" r="6" fill="#d4af37" stroke="#8d6e00" stroke-width="1"/>
+<text x="604" y="793" font-size="9" text-anchor="middle" font-weight="normal" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">B-</text>
+<path d="M294,602 L294,774" fill="none" stroke="#212121" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M532,602 L532,774" fill="none" stroke="#c62828" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="284" y="746" font-size="10" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">lead from OUT-</text>
+<text x="522" y="746" font-size="10" text-anchor="end" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">lead from OUT+</text>
+<rect x="686" y="760" width="150" height="84" rx="8" fill="#eceff1" stroke="#90a4ae" stroke-width="2" fill-opacity="1"/>
+<text x="761" y="800" font-size="13" text-anchor="middle" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">LiPo cell</text>
+<text x="761" y="818" font-size="10" text-anchor="middle" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">3.7 V 1500 mAh</text>
+<path d="M568,774 L568,744 L726,744 L726,760" fill="none" stroke="#c62828" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M604,774 L604,728 L766,728 L766,760" fill="none" stroke="#212121" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="776" y="146" font-size="14" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Wires, pad to pad</text>
+<path d="M776,168 L802,168" fill="none" stroke="#c62828" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="172" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">I4 to M2</text>
+<text x="906" y="172" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">3V3 to VIN</text>
+<path d="M776,191 L802,191" fill="none" stroke="#212121" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="195" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">I3 to M4</text>
+<text x="906" y="195" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">GND to GND</text>
+<path d="M776,214 L802,214" fill="none" stroke="#e68a00" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="218" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">I5 to M5</text>
+<text x="906" y="218" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">GPIO4 to SCL</text>
+<path d="M776,237 L802,237" fill="none" stroke="#1565c0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="241" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">I6 to M6</text>
+<text x="906" y="241" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">GPIO3 to SDA</text>
+<path d="M776,260 L802,260" fill="none" stroke="#212121" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<text x="810" y="264" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">M8 to M4</text>
+<text x="906" y="264" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">SAO to GND</text>
+<path d="M776,283 L802,283" fill="none" stroke="#c62828" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="287" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">N14 to M14</text>
+<text x="906" y="287" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">charger OUT+ to the switch</text>
+<path d="M776,306 L802,306" fill="none" stroke="#c62828" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="310" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">L14 to L12</text>
+<text x="906" y="310" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">switch output</text>
+<path d="M776,329 L802,329" fill="none" stroke="#c62828" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="333" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">L12 to H12</text>
+<text x="906" y="333" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">a wire where the diode was</text>
+<path d="M776,352 L802,352" fill="none" stroke="#c62828" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="356" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">H12 to I2</text>
+<text x="906" y="356" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">on to 5V</text>
+<path d="M776,375 L802,375" fill="none" stroke="#212121" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="379" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">G14 to I3</text>
+<text x="906" y="379" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">charger OUT- to GND</text>
+<text x="776" y="410" font-size="12" text-anchor="start" font-weight="bold" fill="#2e7d32" font-family="Helvetica, Arial, sans-serif">Only for stage 7</text>
+<path d="M776,428 L802,428" fill="none" stroke="#c62828" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="432" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">L12 to M12</text>
+<text x="906" y="432" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">switch output to R1</text>
+<path d="M776,451 L802,451" fill="none" stroke="#2e7d32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="455" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">Q12 to R12</text>
+<text x="906" y="455" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">R1 to R2</text>
+<path d="M776,474 L802,474" fill="none" stroke="#2e7d32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="478" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">R12 to S12</text>
+<text x="906" y="478" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">R2 to C1</text>
+<path d="M776,497 L802,497" fill="none" stroke="#2e7d32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="501" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">Q12 to I9</text>
+<text x="906" y="501" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">R1 and R2 to GPIO0</text>
+<path d="M776,520 L802,520" fill="none" stroke="#212121" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="524" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">S14 to R16</text>
+<text x="906" y="524" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">C1 to the ground end of R2</text>
+<path d="M776,543 L802,543" fill="none" stroke="#212121" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="810" y="547" font-size="12" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Menlo, Consolas, monospace">R16 to G14</text>
+<text x="906" y="547" font-size="11" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">that ground end to OUT-</text>
+<text x="776" y="582" font-size="14" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Parts</text>
+<text x="776" y="604" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">SW1  K14, L14, M14</text>
+<text x="776" y="623" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">R1   M12 and Q12</text>
+<text x="776" y="642" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">R2   R12 and R16</text>
+<text x="776" y="661" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">C1   S12 and S14</text>
+<text x="776" y="680" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">OUT+ lead  N14</text>
+<text x="776" y="699" font-size="12" text-anchor="start" font-weight="normal" fill="#17221c" font-family="Menlo, Consolas, monospace">OUT- lead  G14</text>
+<text x="30" y="882" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">The hole positions assume this pin order: 5V, GND, 3V3, 4, 3, 2, 1, 0 down the right side of the ESP32, and VIN, 3V3, GND, SCL, SDA, CS, SAO on the sensor.</text>
+<text x="30" y="901" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">If your boards are printed in another order, keep the label-to-label connections of the table in the README and move the wires to suit.</text>
+<text x="30" y="920" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">The script that drew this checked it: the layout makes all 7 on-board connections of the circuit, joins nothing else, and no wire runs through another connection's pad.</text>
+<text x="30" y="939" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">Some wires cross each other, which is why they must be insulated. The two leads from the charger are soldered at N14 and G14 and leave the board there.</text>
+<text x="30" y="968" font-size="13" text-anchor="start" font-weight="bold" fill="#b0271f" font-family="Helvetica, Arial, sans-serif">Without the diode: switch the battery off before plugging a USB cable into the ESP32, and on again after unplugging it.</text>
+</svg>

@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SwingLab recorder</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1c7541">
+<style>
+  :root { --bg:#f3f5f1; --panel:#fff; --ink:#17221c; --muted:#58675e; --line:#dde4dc; --accent:#1c7541; --soft:#e4f2e9;
+          --stop:#b0271f; --stop-soft:#fbe6e3; --warn:#96560a; --warn-soft:#fbefd9; --code:#f0f3ee; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0e1411; --panel:#161e19; --ink:#e6eee8; --muted:#9aaba0; --line:#2a362e; --accent:#5fd08c; --soft:#1d3327;
+            --stop:#f58a80; --stop-soft:#3d1f1c; --warn:#f0b55a; --warn-soft:#3a2d14; --code:#101713; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 14px 14px 40px; }
+  h1 { font-size: 20px; margin: 4px 0 2px; } h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 10px; }
+  .muted { color: var(--muted); } p { margin: 4px 0; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; margin-top: 12px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  button, select { font: inherit; border-radius: 6px; padding: 10px 14px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+  button { font-weight: 600; cursor: pointer; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { button.primary { color: #0e1411; } }
+  button:disabled { opacity: .45; cursor: default; }
+  select { flex: 1; min-width: 0; }
+  #record { width: 100%; padding: 18px; font-size: 20px; margin-top: 10px; background: var(--accent); border-color: var(--accent); color: #fff; }
+  #record.recording { background: var(--stop); border-color: var(--stop); }
+  @media (prefers-color-scheme: dark) { #record { color: #0e1411; } }
+  .chip { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 13px; font-weight: 600; background: var(--code); color: var(--muted); }
+  .chip.on { background: var(--soft); color: var(--accent); } .chip.sim { background: var(--warn-soft); color: var(--warn); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .tile { border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; }
+  .tile .label { font-size: 12px; color: var(--muted); } .tile .value { font: 600 18px ui-monospace, Menlo, monospace; }
+  .banner { padding: 10px 12px; border-radius: 6px; margin-top: 12px; background: var(--stop-soft); color: var(--stop); }
+  .result { padding: 10px 12px; border-radius: 6px; background: var(--soft); margin-top: 10px; }
+  ul.history { list-style: none; margin: 0; padding: 0; }
+  ul.history li { border-top: 1px solid var(--line); padding: 10px 0; }
+  ul.history li:first-child { border-top: 0; }
+  .name { font: 600 15px ui-monospace, Menlo, monospace; word-break: break-all; }
+  .small { font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>SwingLab recorder</h1>
+  <p class="muted small">Connects to the bat sensor, records each shot between Start and Stop, and saves it as a CSV file.</p>
+  <div id="banners"></div>
+
+  <div class="card">
+    <h2>Sensor</h2>
+    <div class="row">
+      <span id="status" class="chip">Not connected</span>
+      <span id="rate" class="muted small"></span>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <button id="connect" class="primary" type="button">Connect sensor</button>
+      <button id="disconnect" type="button" disabled>Disconnect</button>
+      <button id="simulate" type="button">Simulated bat</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Live readings</h2>
+    <div class="grid">
+      <div class="tile"><div class="label">ax, g</div><div class="value" id="ax">-</div></div>
+      <div class="tile"><div class="label">ay, g</div><div class="value" id="ay">-</div></div>
+      <div class="tile"><div class="label">az, g</div><div class="value" id="az">-</div></div>
+      <div class="tile"><div class="label">gx, deg/s</div><div class="value" id="gx">-</div></div>
+      <div class="tile"><div class="label">gy, deg/s</div><div class="value" id="gy">-</div></div>
+      <div class="tile"><div class="label">gz, deg/s</div><div class="value" id="gz">-</div></div>
+      <div class="tile"><div class="label">Bat speed, km/h</div><div class="value" id="speed">-</div></div>
+      <div class="tile"><div class="label">Total, g</div><div class="value" id="total">-</div></div>
+      <div class="tile"><div class="label">Readings</div><div class="value" id="count">0</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Record a shot</h2>
+    <div class="row">
+      <label for="shotType" class="small">Shot type</label>
+      <select id="shotType">
+        <option value="auto">Detect automatically</option>
+        <option value="pull_shot">Pull shot</option>
+        <option value="drive_shot">Drive shot</option>
+        <option value="cut_shot">Cut shot</option>
+        <option value="defensive_shot">Defensive shot</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <p class="muted small">Automatic detection is only a first guess, not a tested classifier. To collect data for training one, choose the type yourself.</p>
+    <button id="record" type="button" disabled>Start</button>
+    <p id="recState" class="muted small" aria-live="polite"></p>
+    <div id="result" class="result" hidden aria-live="polite"></div>
+  </div>
+
+  <div class="card">
+    <h2>Recordings</h2>
+    <p class="muted small">Each file is saved to the phone's Downloads folder. A copy stays here until you delete it.</p>
+    <ul class="history" id="history"></ul>
+  </div>
+</main>
+
+<script type="module">
+import { SERVICE_UUID, SENSOR_UUID, NAME_PREFIX, decodePacket, classify, toCsv, fileName } from "./recorder.js";
+
+const $ = id => document.getElementById(id);
+const state = { device: null, characteristic: null, simTimer: null, recording: null, latest: null, count: 0, inSecond: 0, malformed: 0 };
+
+// Browser storage can be full or switched off. The app must keep working without it.
+const load = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } };
+const save = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; } };
+let history = load("swinglab_recordings", []);
+
+const connected = () => Boolean(state.characteristic || state.simTimer);
+
+/** Every reading passes through here, real or simulated. receivedAt is the browser's steady clock, in ms. */
+function onPacket(view, receivedAt) {
+  const r = decodePacket(view);
+  if (!r) { state.malformed++; return; }
+  state.latest = r; state.count++; state.inSecond++;
+  const rec = state.recording;
+  if (!rec) return;
+  const ms = Math.round(performance.timeOrigin + receivedAt);
+  rec.samples.push({ sample_index: rec.samples.length, timestamp_iso: new Date(ms).toISOString(), timestamp_ms: ms,
+                     elapsed_ms: Math.max(0, Math.round(receivedAt - rec.startedAt)), ...r });
+}
+const onNotify = event => onPacket(event.target.value, event.timeStamp);
+
+// ------------------------------------------------------------------ Bluetooth
+async function connect() {
+  try {
+    const device = await navigator.bluetooth.requestDevice({
+      filters: [{ namePrefix: NAME_PREFIX }, { services: [SERVICE_UUID] }],
+      optionalServices: [SERVICE_UUID],
+    });
+    setStatus("Connecting to " + (device.name || "the sensor") + "...");
+    device.addEventListener("gattserverdisconnected", onDisconnected);
+    const server = await device.gatt.connect();
+    const characteristic = await (await server.getPrimaryService(SERVICE_UUID)).getCharacteristic(SENSOR_UUID);
+    characteristic.addEventListener("characteristicvaluechanged", onNotify);
+    await characteristic.startNotifications();
+    state.device = device; state.characteristic = characteristic;
+    setStatus("Connected to " + (device.name || "the sensor"), "on");
+  } catch (error) {
+    setStatus(error.name === "NotFoundError" ? "No sensor chosen" : "Could not connect: " + error.message);
+  }
+  update();
+}
+
+function disconnect() {
+  if (state.simTimer) { stopSimulation(); return; }
+  if (state.device && state.device.gatt.connected) state.device.gatt.disconnect();   // onDisconnected does the rest
+}
+
+function onDisconnected() {
+  if (state.characteristic) state.characteristic.removeEventListener("characteristicvaluechanged", onNotify);
+  state.device = null; state.characteristic = null;
+  setStatus("Disconnected");
+  if (state.recording) finish(true);     // keep what was recorded
+  update();
+}
+
+// ------------------------------------------------------------------ simulated bat, for trying the app without a sensor
+function startSimulation() {
+  let tick = 0;
+  state.simTimer = setInterval(() => {
+    const phase = (tick % 150) / 150;                       // one swing every 3 seconds
+    const k = phase > 0.4 && phase < 0.6 ? Math.sin((phase - 0.4) / 0.2 * Math.PI) : 0;
+    const side = [1, -1, 0][Math.floor(tick / 150) % 3];     // leg side, off side, straight, in turn
+    const values = [0.02 + 1.5 * k, 0.01 + 2 * k, 1 + 0.5 * k, -250 * k, 1100 * k, side * 170 * k, 0];
+    const view = new DataView(new ArrayBuffer(14));
+    values.forEach((v, i) => view.setInt16(i * 2, Math.round(v * (i < 3 ? 4096 : i < 6 ? 16.4 : 1)), true));
+    onPacket(view, performance.now());
+    tick++;
+  }, 20);
+  setStatus("Simulated bat. These numbers are made up, not measured.", "sim");
+  update();
+}
+
+function stopSimulation() {
+  clearInterval(state.simTimer); state.simTimer = null;
+  setStatus("Not connected");
+  if (state.recording) finish(true);
+  update();
+}
+
+// ------------------------------------------------------------------ recording
+function startRecording() {
+  if (!connected() || state.recording) return;
+  state.recording = { startedAt: performance.now(), startedIso: new Date().toISOString(), samples: [], simulated: Boolean(state.simTimer) };
+  $("result").hidden = true;
+  update();
+}
+
+function finish(interrupted = false) {
+  const rec = state.recording;
+  if (!rec) return;
+  state.recording = null;
+  const guess = classify(rec.samples);
+  const chosen = $("shotType").value;
+  const label = chosen === "auto" ? guess.label : chosen;
+  const counters = load("swinglab_counters", {});
+  const key = (rec.simulated ? "sim_" : "") + label;
+  counters[key] = (counters[key] || 0) + 1;              // numbers never repeat, even after a delete
+  save("swinglab_counters", counters);
+  const name = fileName(label, counters[key], rec.simulated);
+  const csv = toCsv(rec.samples);
+  const last = rec.samples[rec.samples.length - 1];
+  const entry = { name, label, by: chosen === "auto" ? "detected" : "chosen", guess: guess.label, reason: guess.reason,
+                  samples: rec.samples.length, durationMs: last ? last.elapsed_ms : 0, startedIso: rec.startedIso,
+                  status: interrupted ? "interrupted" : "complete", simulated: rec.simulated, csv };
+  download(name, csv);
+  history.unshift(entry);
+  const kept = save("swinglab_recordings", history);
+  if (!kept) { entry.csv = null; save("swinglab_recordings", history); }   // storage full: keep the details, not the copy
+
+  $("result").hidden = false;
+  $("result").textContent = `Saved ${name}: ${entry.samples} readings in ${(entry.durationMs / 1000).toFixed(1)} s` +
+    (interrupted ? ", stopped early because the sensor disconnected" : "") +
+    `. ${chosen === "auto" ? "Detected" : "Guess"}: ${guess.label.replace("_", " ")} (${guess.reason}).` +
+    (kept ? "" : " The phone's storage for this app is full, so no copy was kept here. The download has the data.");
+  renderHistory();
+  update();
+}
+
+function download(name, text) {
+  const url = URL.createObjectURL(new Blob([text], { type: "text/csv" }));
+  const a = Object.assign(document.createElement("a"), { href: url, download: name });
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 30000);
+}
+
+// ------------------------------------------------------------------ screen
+function setStatus(text, kind = "") {
+  $("status").textContent = text;
+  $("status").className = "chip " + kind;
+}
+
+function update() {
+  $("connect").disabled = connected();
+  $("simulate").disabled = connected();
+  $("disconnect").disabled = !connected() || Boolean(state.recording);
+  $("record").disabled = !connected();
+  $("record").textContent = state.recording ? "Stop" : "Start";
+  $("record").classList.toggle("recording", Boolean(state.recording));
+  $("shotType").disabled = Boolean(state.recording);
+}
+
+// The screen is redrawn ten times a second. Every reading is still recorded, however fast they come.
+setInterval(() => {
+  const r = state.latest;
+  if (r) {
+    for (const k of ["ax", "ay", "az"]) $(k).textContent = r[k + "_g"].toFixed(2);
+    for (const k of ["gx", "gy", "gz"]) $(k).textContent = r[k + "_dps"].toFixed(0);
+    $("speed").textContent = r.speed_kmh.toFixed(1);
+    $("total").textContent = r.accel_total_g.toFixed(2);
+  }
+  $("count").textContent = state.count;
+  const rec = state.recording;
+  $("recState").textContent = rec ? `Recording: ${((performance.now() - rec.startedAt) / 1000).toFixed(1)} s, ${rec.samples.length} readings` : "";
+}, 100);
+setInterval(() => { $("rate").textContent = connected() ? `${state.inSecond} readings a second` : ""; state.inSecond = 0; }, 1000);
+
+function renderHistory() {
+  const list = $("history");
+  list.textContent = "";
+  if (history.length === 0) { const li = document.createElement("li"); li.className = "muted small"; li.textContent = "Nothing recorded yet."; list.append(li); return; }
+  history.forEach((h, i) => {
+    const li = document.createElement("li");
+    const name = Object.assign(document.createElement("div"), { className: "name", textContent: h.name });
+    const info = Object.assign(document.createElement("div"), { className: "muted small",
+      textContent: `${new Date(h.startedIso).toLocaleString()}. ${h.samples} readings, ${(h.durationMs / 1000).toFixed(1)} s. ` +
+                   `${h.label.replace("_", " ")}, ${h.by}${h.by === "chosen" ? `, guess was ${h.guess.replace("_", " ")}` : ""}.` +
+                   (h.status === "interrupted" ? " Stopped early." : "") + (h.simulated ? " Simulated." : "") });
+    const row = Object.assign(document.createElement("div"), { className: "row" });
+    row.style.marginTop = "6px";
+    const again = Object.assign(document.createElement("button"), { type: "button", textContent: "Download again", disabled: !h.csv });
+    again.addEventListener("click", () => download(h.name, h.csv));
+    const remove = Object.assign(document.createElement("button"), { type: "button", textContent: "Delete" });
+    remove.addEventListener("click", () => {
+      if (!confirm(`Delete ${h.name} from this list? A file already downloaded stays in Downloads.`)) return;
+      history.splice(i, 1); save("swinglab_recordings", history); renderHistory();
+    });
+    row.append(again, remove);
+    li.append(name, info, row);
+    list.append(li);
+  });
+}
+
+// ------------------------------------------------------------------ start
+const banner = text => { const div = document.createElement("div"); div.className = "banner"; div.textContent = text; $("banners").append(div); };
+if (!window.isSecureContext) banner("This page must be opened from an https address or from localhost. Otherwise the browser blocks Bluetooth.");
+if (!navigator.bluetooth) { banner("This browser has no Web Bluetooth. Use Chrome on Android. iPhones do not support it."); }
+$("connect").addEventListener("click", connect);
+$("disconnect").addEventListener("click", disconnect);
+$("simulate").addEventListener("click", startSimulation);
+$("record").addEventListener("click", () => state.recording ? finish() : startRecording());
+$("connect").hidden = !navigator.bluetooth;
+renderHistory();
+update();
+</script>
+</body>
+</html>

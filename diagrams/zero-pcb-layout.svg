@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 964" width="1120" height="964">
-<rect width="1120" height="964" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 994" width="1120" height="994">
+<rect width="1120" height="994" fill="#ffffff"/>
 <text x="30" y="38" font-size="20" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">Zero PCB layout, seen from the component side</text>
 <text x="30" y="60" font-size="13" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">One arrangement that works. Each dot is a hole, 2.54 mm from the next. The wires run on the solder side and must be insulated.</text>
 <rect x="62.8" y="132.8" width="700.4" height="564.4" rx="8" fill="#c8a165" stroke="#8d6e3a" stroke-width="2" fill-opacity="1"/>
