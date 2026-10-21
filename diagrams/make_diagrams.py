@@ -27,8 +27,8 @@ NETS = {
     "BAT-":  ["BAT.-", "TP.B-"],
     "VOUT":  ["TP.OUT+", "SW.a"],
     "VSW":   ["SW.common", "D1.anode", "R1.1"],
-    "5V":    ["D1.cathode", "ESP.5V"],
-    "GND":   ["TP.OUT-", "ESP.GND", "IMU.GND", "IMU.SAO", "R2.2", "C1.2"],
+    "5V":    ["D1.cathode", "ESP.5V", "C2.+"],
+    "GND":   ["TP.OUT-", "ESP.GND", "IMU.GND", "IMU.SAO", "R2.2", "C1.2", "C2.-"],
     "3V3":   ["ESP.3V3", "IMU.VIN"],
     "SCL":   [f"ESP.GPIO{PINS['SCL']}", "IMU.SCL"],
     "SDA":   [f"ESP.GPIO{PINS['SDA']}", "IMU.SDA"],
@@ -426,6 +426,91 @@ def battery_sense():
     return d.save("stage-7-battery-sense.svg")
 
 
+def impact_piezo():
+    d = Drawing(1100, 700, "Impact sensor, a proposal: a piezo disc, no diodes needed",
+                "The firmware does not read it yet. It works the same with or without the diode in the power path.")
+    # the bat, seen from the back
+    d.rect(40, 150, 200, 24, "#c8a165", "#8d6e3a", 10, 2)
+    d.text(140, 140, "handle", 12, "middle", fill=MUTED)
+    d.rect(240, 118, 500, 88, "#e8d3a8", "#8d6e3a", 18, 2)
+    d.text(720, 108, "toe", 12, "end", fill=MUTED)
+    d.rect(262, 136, 120, 52, ESP_BOARD, rx=6)
+    d.note(322, 158, ["ESP32 + BMI160", "on the zero PCB"], 11, "#ffffff", 15, "middle", "bold")
+    d.circle(590, 162, 24, GOLD, GOLD_EDGE, 2)
+    d.circle(590, 162, 13, "#eceff1", GOLD_EDGE)
+    d.text(590, 232, "PZ1 on the back of the blade, at the middle", 12, "middle", "bold")
+    d.text(590, 249, "roughly 15 to 20 cm from the toe", 12, "middle", fill=MUTED)
+    d.wire([(566, 156), (382, 156)], RED, 3)
+    d.wire([(566, 170), (382, 170)], BLACK, 3)
+    d.text(474, 148, "two thin wires, taped down", 11, "middle", fill=MUTED)
+
+    # the circuit
+    sig, gnd = 360, 500
+    d.text(40, 312, "The circuit", 15, weight="bold")
+    d.rect(95, 400, 50, 40, "#eceff1", GOLD_EDGE, 6, 2)
+    d.text(120, 425, "PZ1", 12, "middle", "bold")
+    d.text(156, 396, "red", 11, fill=RED)
+    d.text(156, 456, "black", 11, fill=MUTED)
+    d.wire([(120, 400), (120, sig), (560, sig)], RED)
+    d.wire([(120, 440), (120, gnd), (380, gnd)], BLACK)
+    d.ground(120, gnd)
+    d.dot(240, sig, RED)
+    d.wire([(240, sig), (240, 416)], RED)
+    d.capacitor(240, 416, "C3", "100 nF")
+    d.wire([(240, 424), (240, gnd)], BLACK)
+    d.dot(240, gnd, BLACK)
+    d.dot(360, sig, RED)
+    d.wire([(360, sig), (360, 396)], RED)
+    d.resistor(360, 396, "R4", "1 M", length=60, vertical=True)
+    d.wire([(360, 456), (360, gnd)], BLACK)
+    d.dot(360, gnd, BLACK)
+    d.add(f'<rect x="200" y="330" width="210" height="200" rx="10" fill="none" stroke="{MUTED}" stroke-width="1.5" stroke-dasharray="6 5"/>')
+    d.text(305, 548, "solder these two at the disc", 11, "middle", fill=MUTED)
+    d.resistor(470, sig, "R3", "100 k")
+    d.wire([(530, sig), (600, sig)], GREEN)
+    d.rect(600, sig - 17, 140, 34, ESP_BOARD, rx=6)
+    d.text(670, sig + 5, "ESP32 GPIO1", 13, "middle", "bold", "#ffffff")
+    d.text(500, sig + 52, "near the ESP32", 11, "middle", fill=MUTED)
+    d.text(120, gnd + 52, "GND of the ESP32", 12, "middle", "bold")
+
+    d.panel(780, 96, 290, 470)
+    d.note(798, 124, ["Why no diode is needed"], 14, INK, 20, weight="bold")
+    d.note(798, 150, [
+        "A hard hit can make the disc give",
+        "tens of volts. C3 sits across it and",
+        "takes most of that charge: the voltage",
+        "falls to about a sixth.",
+        "",
+        "R3 then lets only a fraction of a",
+        "milliamp into the pin, which the pin's",
+        "own protection inside the chip takes.",
+        "",
+        "R4 empties the disc after each hit.",
+        "The reading is back at zero in about",
+        "a tenth of a second.",
+        "",
+        "GPIO1 is free: GPIO0 measures the",
+        "battery, GPIO3 and GPIO4 talk to",
+        "the BMI160.",
+    ], 12, INK, 17)
+    d.note(798, 446, ["On the zero PCB"], 14, INK, 20, weight="bold")
+    d.note(798, 472, [
+        "R3's free end in J8, joined to I8",
+        "(GPIO1) with a blob of solder.",
+        "The black wire in F14, joined to",
+        "G14 (GND) the same way.",
+        "Both holes are free in both layouts.",
+    ], 12, INK, 17)
+
+    d.panel(30, 590, 1040, 90)
+    d.note(48, 616, [
+        "PZ1: plain piezo disc, 27 mm, with two wires. Not a buzzer module.   C3: 100 nF ceramic, printed 104.   R4: 1 megohm (brown, black, green).",
+        "R3: 100 kilohm (brown, black, yellow), the same as R1 and R2.   Glue the disc flat with epoxy, brass side down, and tape over it.",
+        "Calibrate it with real hits: record a few on the middle, the edge and the toe with the phone app, and compare the readings.",
+    ], 12, INK, 22)
+    return d.save("impact-piezo.svg")
+
+
 # ---------------------------------------------------------------------------------------------
 # 5. The whole circuit
 # ---------------------------------------------------------------------------------------------
@@ -455,6 +540,15 @@ def full_circuit():
     d.diode(525, plus_y)
     vx, vy = e["5V"]
     d.wire([(555, plus_y), (590, plus_y), (590, 178), (840, 178), (840, vy), (vx, vy)], RED)
+
+    # C2 from the 5V line to ground, so the line holds up while the radio sends
+    d.dot(760, gnd_y, BLACK)
+    d.wire([(760, gnd_y), (760, 160)], BLACK, 3)
+    d.capacitor(760, 160, "", "")
+    d.wire([(760, 168), (760, 178)], RED, 3)
+    d.dot(760, 178, RED)
+    d.text(780, 176, "+", 12, weight="bold")
+    d.text(760, gnd_y - 22, "C2 220 µF", 12, "middle", "bold")
 
     # the sensor
     x3, y3 = e["3V3"]
@@ -498,6 +592,7 @@ def full_circuit():
     d.legend(48, 806, GREEN, "Battery measurement")
     notes = [
         "SW1: slide switch.  R1, R2: 100 kilohm.  C1: 100 nanofarad.",
+        "C2: 220 µF electrolytic, plus lead to the 5V line.",
         "D1: diode 1N5817, striped end towards the ESP32.",
         "",
         "Wires that cross are joined only where there is a dot.",
@@ -533,6 +628,7 @@ PLACED.update({
     "R1.1": "M12", "R1.2": "Q12",
     "R2.1": "R12", "R2.2": "R16",
     "C1.1": "S12", "C1.2": "S14",
+    "C2.+": "H13", "C2.-": "G13",   # 220 uF: holds the 5V line up while the radio sends
     "TP.OUT+": "N14",   # the lead from the charger's OUT+ is soldered into this hole
     "TP.OUT-": "G14",   # and the lead from OUT- into this one
 })
@@ -548,6 +644,8 @@ LINKS = [
     ("L14", "L12", RED, "switch to the diode", False),
     ("H12", "I2", RED, "diode to 5V", False),
     ("G14", "I3", BLACK, "charger OUT- to GND", False),
+    ("H13", "H12", RED, "C2 plus to the 5V line", False),
+    ("G13", "G14", BLACK, "C2 minus to GND", False),
     ("L12", "M12", RED, "switch output to R1", True),
     ("Q12", "R12", GREEN, "R1 to R2", True),
     ("R12", "S12", GREEN, "R2 to C1", True),
@@ -637,7 +735,7 @@ def without_diode():
         else:
             links.append((a, b, colour, what, optional))
     nets = {name: pins for name, pins in NETS.items() if name not in ("VSW", "5V")}
-    nets["5V"] = ["SW.common", "R1.1", "ESP.5V"]   # with no diode, the switch output is the 5V line
+    nets["5V"] = ["SW.common", "R1.1", "ESP.5V", "C2.+"]   # with no diode, the switch output is the 5V line
     return placed, links, nets
 
 
@@ -712,6 +810,14 @@ def zero_pcb(diode=True):
     d.rect(hx("S13") - 9, hy("S13") - 13, 18, 26, "#e6a23c", INK, 6, 1.5)
     d.text(hx("S13") + 16, hy("S13") + 4, "C1", 10, weight="bold")
     pads("S12", "S14")
+    leads("G13", "H13")                                             # C2, plus lead at H13
+    cx = (hx("G13") + hx("H13")) / 2
+    d.circle(cx, hy("H13"), 15, "#1a237e", INK, 1.5)
+    d.text(cx - 8, hy("H13") + 5, "-", 14, "middle", "bold", "#ffffff")
+    d.text(cx + 8, hy("H13") + 5, "+", 12, "middle", "bold", "#ffffff")
+    d.text(hx("G13") - 20, hy("G13") + 1, "C2", 10, "end", "bold")
+    d.text(hx("G13") - 20, hy("G13") + 13, "220 µF", 9, "end", fill=INK)
+    pads("G13", "H13")
     if diode:
         leads("H12", "L12")                                         # D1, cathode (the stripe) at H12
         d.rect(hx("J12") - 32, hy("J12") - 9, 64, 18, "#424242", INK, 4, 1.5)
@@ -770,7 +876,8 @@ def zero_pcb(diode=True):
     yy += 12
     d.text(lx, yy, "Parts", 14, weight="bold")
     yy += 22
-    for line in (("D1   H12 (stripe) and L12",) if diode else ()) + ("SW1  K14, L14, M14", "R1   M12 and Q12", "R2   R12 and R16", "C1   S12 and S14",
+    for line in (("D1   H12 (stripe) and L12",) if diode else ()) + ("SW1  K14, L14, M14", "C2   H13 (+) and G13 (-)",
+                 "R1   M12 and Q12", "R2   R12 and R16", "C1   S12 and S14",
                  "OUT+ lead  N14", "OUT- lead  G14"):
         d.text(lx, yy, line, 12, mono=True)
         yy += 19
@@ -1002,5 +1109,5 @@ def bluetooth():
 
 if __name__ == "__main__":
     made = [pin_map(), sensor_wiring(), power_path(), battery_sense(), full_circuit(), zero_pcb(), zero_pcb(diode=False),
-            data_flow(), i2c_read(), packet(), bluetooth()]
+            data_flow(), i2c_read(), packet(), bluetooth(), impact_piezo()]
     print("drew " + ", ".join(made))

@@ -13,6 +13,12 @@ It is written for someone who has not done this before. Each stage says what to 
 
 So follow the stages in order, and trust the labels printed on your own boards over any drawing.
 
+## Versions
+
+**0.2.0, 2026-10-21.** C2, a 220 µF capacitor that steadies the 5V line, added to both zero PCB layouts and the full circuit. A proposed impact sensor: [a piezo disc wired without diodes](diagrams/impact-piezo.svg), not yet read by the firmware. The continuity tester also runs on an ESP32 DevKit. The phone app moved to [mobile_app_swing](https://github.com/gaurav3611/mobile_app_swing).
+
+**0.1.0, 2026-10-17.** First version: the circuit, nine stages, the guides as PDF, the one-file firmware and the layout without the diode.
+
 ## Parts
 
 | Part | Notes |
@@ -93,6 +99,7 @@ More drawings:
 - [Measuring the battery](diagrams/stage-7-battery-sense.svg)
 - [Zero PCB layout, hole by hole](diagrams/zero-pcb-layout.svg), with the steps in [docs/build-on-zero-pcb.pdf](docs/build-on-zero-pcb.pdf)
 - [The same layout without the diode](diagrams/zero-pcb-layout-no-diode.svg), with a wire in its place
+- [Impact sensor, a proposal](diagrams/impact-piezo.svg): a piezo disc on the blade, wired without diodes. The firmware does not read it yet.
 
 ## Is the TP4056 the right charger?
 

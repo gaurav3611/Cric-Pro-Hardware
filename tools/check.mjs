@@ -170,7 +170,7 @@ for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_swinglab_bat"
   const drawings = read(join(ROOT, "diagrams", "make_diagrams.py"));
   const links = [...drawings.matchAll(/^    \("([A-Z]\d+)", "([A-Z]\d+)", (?:RED|BLACK|ORANGE|BLUE|GREEN), /gm)].map(m => `| ${m[1]} | ${m[2]} |`);
   const guide = hasSources ? read(join(ROOT, "docs", "build-on-zero-pcb.md")) : "";
-  if (hasSources) check(`the soldering guide lists all ${links.length} wires of the zero PCB layout`, links.length === 15 && links.every(l => guide.includes(l)), "missing: " + links.filter(l => !guide.includes(l)).join("  "));
+  if (hasSources) check(`the soldering guide lists all ${links.length} wires of the zero PCB layout`, links.length === 17 && links.every(l => guide.includes(l)), "missing: " + links.filter(l => !guide.includes(l)).join("  "));
   const holes = Object.fromEntries([...drawings.matchAll(/"((?:SW|D1|R1|R2|C1|TP)\.[^"]+)": "([A-Z]\d+)"/g)].map(m => [m[1], m[2]]));
   const parts = [["D1", "D1.cathode", "D1.anode"], ["SW1", "SW.b", "SW.common", "SW.a"], ["R1", "R1.1", "R1.2"], ["R2", "R2.1", "R2.2"], ["C1", "C1.1", "C1.2"], ["OUT+", "TP.OUT+"], ["OUT-", "TP.OUT-"]];
   const lost = parts.filter(([name, ...pins]) => !guide.split("\n").some(line => line.includes(name) && pins.every(p => line.includes(holes[p]))));

@@ -1,13 +1,13 @@
 {
   "tool": "e628812e08d99ca2d1fa7f9040a2ca52696d5592f71e7ebc1995bbf9c7ff8c47",
-  "drawings": "500b3e2c24092fa181cc09225d2986213e3be42b4198721f6a8486a8b10b850a",
+  "drawings": "e0433fdc3efd99acd85263faa947519daf91f14ae594e5d9b668c072a1bdb6e7",
   "documents": {
-    "docs/build-on-zero-pcb.md": "c463e1c42d55a549b693fb9f14d48b22f7d6b43d0816044d486e944865d8f2f0",
+    "docs/build-on-zero-pcb.md": "7e0d43293b7fd85375350aeaee432c69565c32c34b4ad0e5c9855a9792830ed2",
     "docs/how-it-works.md": "a8e53eb7a61623f4c02e116845cc219976a7001c25a0c6da5e198ac2b621bb26",
     "docs/make-changes.md": "78c7993f213217a535a6fbc1a999eb337aa4b072a5667a04f23bb8f7fef88ab0",
-    "docs/parts-to-buy.md": "3b362f4cf0e26f2e7abdcab47932f3767ae12ea95b571fd1ade38f35b25b42f4",
+    "docs/parts-to-buy.md": "c3896869e315e427bf7916d1cc1f506d789de6b60ee45086a7f2e3a58d492848",
     "docs/phone-app.md": "c02cce9ee0b22a6d832b8f4f3713ac975b6227e903808e984722120cd5a1c3ab",
-    "docs/troubleshooting.md": "6250f624961a50aac825647e90c88fde1953a3e1dd72eb7299475cffd459b78d",
+    "docs/troubleshooting.md": "17b7f841813d9d680a1f331cca15cd4c8daebe0f7b6ef7c2396d6467bc6464f7",
     "stages/01_blink/README.md": "7f49e5c99de13d304365b6d13031cfcf1aef193424e680acdd4a20990838db8c",
     "stages/02_i2c_scan/README.md": "817fccce6ad659df0a0f38113ca595a395ab57e45da9521ba8b7dd7a7d2a6313",
     "stages/03_imu_read/README.md": "fa623c088f9a288047d9ba615ab6a7bf2625a165ba266371bd986f8d7bbb4a99",
