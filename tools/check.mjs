@@ -12,7 +12,7 @@
     2. Packet and battery arithmetic
                          swing_packet.h and battery.h are built for this computer and compared with
                          answers worked out separately here, and with the web app's own decoder
-                         README.md and the 16 PDF documents are there, and no PDF is older than what it
+                         README.md and the 17 PDF documents are there, and no PDF is older than what it
                          was made from.
     3. Every sketch in the simulator
                          tools/sim runs each sketch against a pretend sensor, battery and dashboard.
@@ -26,6 +26,7 @@
 import { execFileSync, spawnSync } from "node:child_process";
 import { MANIFEST, fingerprint, sources } from "./make_pdfs.mjs";
 import { ONE_FILE, oneFile } from "./make_one_file.mjs";
+import { MANIFEST as PCB_MANIFEST, designFingerprint, kicadCli, verifyDesign } from "./make_pcb_files.mjs";
 import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
@@ -34,7 +35,7 @@ import { fileURLToPath } from "node:url";
 const TOOLS = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(TOOLS, "..");
 const STAGES = join(ROOT, "stages");
-const WORK = mkdtempSync(join(tmpdir(), "swinglab-check-"));
+const WORK = mkdtempSync(join(tmpdir(), "sswingg-check-"));
 const withBoard = process.argv.includes("--board");
 
 // The one list of pins. Every sketch, the drawings and the README must agree with it.
@@ -128,7 +129,7 @@ if (!compiler) { console.log("FAIL  no C++ compiler found (tried c++, clang++, g
 // ------------------------------------------------------------------------------------------------
 console.log("\n1. Files in step");
 // ------------------------------------------------------------------------------------------------
-for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_swinglab_bat", "09_wifi_to_api"]], ["swing_packet.h", ["05_ble_stream", "08_swinglab_bat"]], ["battery.h", ["07_battery_level", "08_swinglab_bat"]]]) {
+for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_sswingg_bat", "09_wifi_to_api"]], ["swing_packet.h", ["05_ble_stream", "08_sswingg_bat"]], ["battery.h", ["07_battery_level", "08_sswingg_bat"]]]) {
   const texts = stages.map(s => read(join(STAGES, s, header)));
   check(`${header} is the same file in ${stages.join(", ")}`, texts.every(t => t === texts[0]), "copy the changed one over the others");
 }
@@ -154,14 +155,14 @@ for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_swinglab_bat"
   check("the drawings are made with the same pins", drawings.includes(wanted), "diagrams/make_diagrams.py should contain: " + wanted);
 }
 {
-  const config = read(join(STAGES, "08_swinglab_bat", "config.h")), stage5 = read(join(STAGES, "05_ble_stream", "05_ble_stream.ino"));
+  const config = read(join(STAGES, "08_sswingg_bat", "config.h")), stage5 = read(join(STAGES, "05_ble_stream", "05_ble_stream.ino"));
   const pick = (text, name) => (text.match(new RegExp(`#define ${name} "([^"]+)"`)) || [])[1];
   equal("stage 5 and stage 8 use the same Bluetooth ids and name", ["SERVICE_UUID", "SENSOR_CHARACTERISTIC_UUID", "DEVICE_NAME"].map(n => pick(stage5, n)), ["SERVICE_UUID", "SENSOR_CHARACTERISTIC_UUID", "DEVICE_NAME"].map(n => pick(config, n)));
   equal("the sensor value has the id this check looks for", pick(config, "SENSOR_CHARACTERISTIC_UUID"), SENSOR_UUID);
   if (web) {
     equal("the Bluetooth ids are the ones the web app asks for", [pick(config, "SERVICE_UUID"), pick(config, "SENSOR_CHARACTERISTIC_UUID")], [web.packet.BLE_SERVICE_UUID, web.packet.BLE_SENSOR_UUID]);
     check("the device name starts with the prefix the web app filters on", pick(config, "DEVICE_NAME").startsWith(web.packet.BLE_NAME_PREFIX), `${pick(config, "DEVICE_NAME")} does not start with ${web.packet.BLE_NAME_PREFIX}`);
-    const driver = read(join(STAGES, "08_swinglab_bat", "bmi160.h"));
+    const driver = read(join(STAGES, "08_sswingg_bat", "bmi160.h"));
     const scale = (text, re) => parseFloat((text.match(re) || [])[1]);
     equal("counts per g and per degree per second match the web app", [scale(driver, /BMI160_ACC_LSB_PER_G = ([\d.]+)/), scale(driver, /BMI160_GYR_LSB_PER_DPS = ([\d.]+)/)],
       [scale(web.packetSource, /ACCEL_COUNTS_PER_G = ([\d.]+)/), scale(web.packetSource, /GYRO_COUNTS_PER_DPS = ([\d.]+)/)]);
@@ -177,6 +178,15 @@ for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_swinglab_bat"
   if (hasSources) check("the soldering guide puts every part in the holes of the layout", Object.keys(holes).length === 13 && lost.length === 0, "check the rows for: " + lost.map(l => l[0]).join(", "));
 
   check("the one-file sketch is the stage 8 firmware as it is now", existsSync(ONE_FILE) && read(ONE_FILE) === oneFile(), "run: node tools/make_one_file.mjs");
+  const fab = existsSync(PCB_MANIFEST) ? JSON.parse(read(PCB_MANIFEST)).design : "";
+  check("the PCB's Gerber files, parts list and drawings are made from its KiCad design as it is now", fab === designFingerprint(), "run: node tools/make_pcb_files.mjs");
+  const cli = kicadCli();
+  if (cli) {
+    const problems = verifyDesign(cli);
+    check("the KiCad design has no ERC or DRC errors, its board matches its schematic, and its schematic is the circuit of the drawings", problems.length === 0, problems.join("; "));
+  } else {
+    console.log("      KiCad is not installed here, so the checks of the PCB design itself are skipped.");
+  }
 
   const wifi = read(join(STAGES, "09_wifi_to_api", "09_wifi_to_api.ino"));
   check("the WiFi sketch holds no real network name or password", wifi.includes('"YOUR_WIFI_NAME"') && wifi.includes('"YOUR_WIFI_PASSWORD"'), "put the placeholders back before sharing the file");
@@ -187,8 +197,8 @@ for (const [header, stages] of [["bmi160.h", ["05_ble_stream", "08_swinglab_bat"
   const made = JSON.parse(read(MANIFEST));
   const pdfs = [...Object.keys(made.documents).map(f => f.replace(/\.md$/, ".pdf")), "diagrams/diagrams.pdf"];
   const bad = pdfs.filter(f => !existsSync(join(ROOT, f)) || readFileSync(join(ROOT, f)).subarray(0, 5).toString() !== "%PDF-" || readFileSync(join(ROOT, f)).length < 20000);
-  check(`all ${pdfs.length} PDF documents are there: six guides, a page for each of the ${stageDirs.length} stages, and the drawings`,
-    pdfs.length === 16 && stageDirs.every(s => pdfs.includes(`stages/${s}/README.pdf`)) && bad.length === 0, "missing or not a PDF: " + bad.join(", "));
+  check(`all ${pdfs.length} PDF documents are there: seven guides, a page for each of the ${stageDirs.length} stages, and the drawings`,
+    pdfs.length === 17 && stageDirs.every(s => pdfs.includes(`stages/${s}/README.pdf`)) && bad.length === 0, "missing or not a PDF: " + bad.join(", "));
   const strays = ["README.pdf"].filter(f => existsSync(join(ROOT, f)));
   check("the front page exists once, as README.md", existsSync(join(ROOT, "README.md")) && strays.length === 0, "remove: " + strays.join(", "));
   if (!hasSources) {
@@ -231,7 +241,7 @@ console.log("\n2. Packet and battery arithmetic");
 // ------------------------------------------------------------------------------------------------
 {
   const binary = join(WORK, "vectors");
-  const made = build(binary, ["-I", join(STAGES, "08_swinglab_bat"), join(TOOLS, "tests", "vectors.cpp")]);
+  const made = build(binary, ["-I", join(STAGES, "08_sswingg_bat"), join(TOOLS, "tests", "vectors.cpp")]);
   check("swing_packet.h and battery.h build for this computer without warnings", made.ok && !made.messages, made.messages);
   const lines = made.ok ? execFileSync(binary, { encoding: "utf8" }).split("\n").filter(Boolean).map(l => l.trim().split(/\s+/)) : [];
 
@@ -364,7 +374,7 @@ function checkStream(label, r, { connected, quiet = [], swing, stillOffsets = 1 
 }
 {
   // The bat firmware, used the way it will be: moved while it calibrates, a swing, a loose wire, BOOT held, a reconnect.
-  const r = simulate("08_swinglab_bat", "wobble@200:900,connect@4000,swing@5200:400:1100:1:3,unplug@7000:700,button@9000:1300,disconnect@12000,connect@13000,end@15000");
+  const r = simulate("08_sswingg_bat", "wobble@200:900,connect@4000,swing@5200:400:1100:1:3,unplug@7000:700,button@9000:1300,disconnect@12000,connect@13000,end@15000");
   checkStream("stage 8", r, { connected: [[4000, 12000], [13000, 15000]], quiet: [[7000, 8500], [9000, 11500]], swing: { at: 5200, len: 400, peak: 1100, side: 1 }, stillOffsets: 3 });
   check("stage 8 measures the still position again when the bat moved during it", r.out.includes("The bat moved. Trying again..."));
   check("stage 8 starts the sensor again after a wire came loose", r.out.includes("Too many failed reads. Starting the sensor again.") && (r.out.match(/BMI160 found at 0x68/g) || []).length === 2);
@@ -377,16 +387,16 @@ function checkStream(label, r, { connected, quiet = [], swing, stillOffsets = 1 
 }
 {
   const flags = ["-DHAS_BATTERY_SENSE=1"];
-  const r = simulate("08_swinglab_bat", "battery@0:3950,connect@3000,battery@8000:3550,battery@20000:3400,end@60000", { flags });
+  const r = simulate("08_sswingg_bat", "battery@0:3950,connect@3000,battery@8000:3550,battery@20000:3400,end@60000", { flags });
   const levels = r.packets.filter(p => p.uuid === "2a19").map(p => parseInt(p.hex, 16));
   check("stage 8 with battery parts: reports the level at start", r.out.includes("Battery: 3.95 V, about 70%") || r.out.includes("Battery: 3.95 V, about 69%"), r.out.slice(0, 200));
   check(`stage 8 with battery parts: sends a falling level over Bluetooth (${levels.slice(0, 6).join(", ")}, ... ${levels.at(-1)})`, levels.length >= 5 && levels.every((v, i) => v <= 100 && (i === 0 || v < levels[i - 1])) && levels.at(-1) <= 2);
   const lowAt = (r.out.match(/battery 3\.5\d V \d+% LOW/) || { index: -1 }).index;
   check("stage 8 with battery parts: says LOW under 3.60 V and blinks three times every 2 seconds", lowAt > 0 && flashes(r.light, 16000, 18000) === 3 && flashes(r.light, 18000, 20000) === 3, "flashes: " + flashes(r.light, 16000, 18000));
   check("stage 8 with battery parts: an empty cell puts the bat to sleep, after five flashes", r.out.includes("Battery empty at") && r.out.includes("deep sleep") && !r.packets.some(p => p.at > 30000));
-  const dead = simulate("08_swinglab_bat", "battery@0:3300,end@5000", { flags });
+  const dead = simulate("08_sswingg_bat", "battery@0:3300,end@5000", { flags });
   check("stage 8 with battery parts: switched on with an empty cell, it sleeps before the radio starts", dead.out.includes("deep sleep") && !dead.out.includes("Bluetooth is on"));
-  const usb = simulate("08_swinglab_bat", "battery@0:0,connect@3000,end@6000", { flags });
+  const usb = simulate("08_sswingg_bat", "battery@0:0,connect@3000,end@6000", { flags });
   check("stage 8 with battery parts: on USB with the switch off it runs normally and says the battery is not seen", usb.out.includes("Battery: not seen") && usb.packets.filter(p => p.uuid === SENSOR_UUID).length > 100 && !usb.out.includes("sleep"));
 }
 
@@ -432,15 +442,15 @@ if (withBoard) {
     check("arduino-cli is available", false, "install the Arduino IDE, or set ARDUINO_CLI to the path of arduino-cli");
   } else {
     const compile = (stage, extra = []) => {
-      const folder = stage === "swinglab_bat_one_file" ? join(ROOT, stage) : join(STAGES, stage);
+      const folder = stage === "sswingg_bat_one_file" ? join(ROOT, stage) : join(STAGES, stage);
       const result = spawnSync(cli, ["compile", "--fqbn", "esp32:esp32:nologo_esp32c3_super_mini", "--warnings", "all", "--build-path", join(WORK, "board-" + stage + extra.length), ...extra, folder], { encoding: "utf8" });
       const text = (result.stdout || "") + (result.stderr || "");
       const size = (text.match(/Sketch uses (\d+) bytes \((\d+)%\)/) || [])[2];
       const warnings = text.split("\n").filter(l => /warning:/.test(l));
       check(`${stage}${extra.length ? " with battery parts" : ""} compiles without warnings${size ? ", using " + size + "% of the program space" : ""}`, result.status === 0 && warnings.length === 0, (warnings[0] || text.split("\n").filter(l => /error/i.test(l))[0] || "").trim());
     };
-    for (const stage of [...stageDirs, "swinglab_bat_one_file"]) compile(stage);
-    compile("08_swinglab_bat", ["--build-property", "compiler.cpp.extra_flags=-DHAS_BATTERY_SENSE=1"]);
+    for (const stage of [...stageDirs, "sswingg_bat_one_file"]) compile(stage);
+    compile("08_sswingg_bat", ["--build-property", "compiler.cpp.extra_flags=-DHAS_BATTERY_SENSE=1"]);
   }
 } else {
   console.log("\n5. Compiling for the real chip was skipped. Run again with --board to include it.");

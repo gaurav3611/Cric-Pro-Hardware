@@ -1,7 +1,7 @@
 {
-  "name": "SwingLab recorder",
+  "name": "SSwinGG recorder",
   "short_name": "Recorder",
-  "description": "Records swings from the SwingLab bat sensor and saves each one as a CSV file.",
+  "description": "Records swings from the SSwinGG bat sensor and saves each one as a CSV file.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

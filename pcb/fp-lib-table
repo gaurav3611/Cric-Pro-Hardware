@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "sswingg")(type "KiCad")(uri "${KIPRJMOD}/sswingg.pretty")(options "")(descr "SSwinGG bat sensor footprints"))
+)

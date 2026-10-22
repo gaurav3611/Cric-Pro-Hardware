@@ -50,7 +50,7 @@ export function fingerprint() {
 }
 
 /** The line at the foot of every page: which document this is. */
-const footer = title => (/swinglab/i.test(title) ? title : "SwingLab bat sensor. " + title).replace(/"/g, "'");
+const footer = title => (/sswingg/i.test(title) ? title : "SSwinGG bat sensor. " + title).replace(/"/g, "'");
 
 const STYLE = title => `
   @page { size: A4; margin: 16mm 15mm 18mm 15mm;
@@ -107,7 +107,7 @@ function toHtml(source) {
 
 function drawingsHtml() {
   const pages = drawings().map(f => `<section><img src="${pathToFileURL(join(ROOT, "diagrams", f)).href}" alt=""></section>`).join("");
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>SwingLab bat sensor: all drawings</title><style>
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>SSwinGG bat sensor: all drawings</title><style>
     @page { size: A4 landscape; margin: 8mm; }
     body { margin: 0; } section { height: 193mm; display: flex; align-items: center; justify-content: center; break-after: page; }
     section:last-child { break-after: auto; } img { max-width: 100%; max-height: 100%; }
@@ -127,7 +127,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   if (list.length === 0) { console.log("No Markdown sources here. The published copy holds only the PDFs."); process.exit(0); }
   if (spawnSync("pandoc", ["--version"]).status !== 0) { console.error("pandoc was not found. On a Mac: brew install pandoc"); process.exit(1); }
   if (!existsSync(CHROME)) { console.error("Google Chrome was not found at " + CHROME + ". Set CHROME_PATH."); process.exit(1); }
-  const work = mkdtempSync(join(tmpdir(), "swinglab-pdf-"));
+  const work = mkdtempSync(join(tmpdir(), "sswingg-pdf-"));
   try {
     for (const source of list) {
       const pdf = join(ROOT, source.replace(/\.md$/, ".pdf"));

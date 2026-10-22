@@ -10,7 +10,7 @@
     - with the stage 7 parts fitted, it reports the battery level and protects the cell
 
   This is the whole firmware in one file. The kit keeps the same code in five files:
-  08_swinglab_bat.ino, config.h, bmi160.h, swing_packet.h and battery.h.
+  08_sswingg_bat.ino, config.h, bmi160.h, swing_packet.h and battery.h.
   Settings are in the first section below.
 
   Light on the board
@@ -167,7 +167,7 @@ inline BatteryState batteryState(int millivolts, int lowMillivolts, int emptyMil
 // 3. The 14-byte Bluetooth packet (swing_packet.h in the kit)
 // =====================================================================================
 /*
-  The Bluetooth packet the SwingLab dashboard reads.
+  The Bluetooth packet the SSwinGG dashboard reads.
 
   14 bytes: seven 16-bit signed numbers, low byte first, in this order:
 
@@ -238,7 +238,7 @@ inline void swingBuildPacket(const int16_t accel[3], const int16_t gyro[3], cons
 
 
 // Raw counts per unit for the ranges this driver selects.
-// The SwingLab dashboard divides by exactly these two numbers, so the ranges must stay
+// The SSwinGG dashboard divides by exactly these two numbers, so the ranges must stay
 // at +-8 g and +-2000 degrees per second.
 const float BMI160_ACC_LSB_PER_G = 4096.0f;
 const float BMI160_GYR_LSB_PER_DPS = 16.4f;
@@ -401,7 +401,7 @@ class BMI160 {
 };
 
 // =====================================================================================
-// 5. The firmware (08_swinglab_bat.ino in the kit)
+// 5. The firmware (08_sswingg_bat.ino in the kit)
 // =====================================================================================
 BMI160 imu;
 BLECharacteristic *sensorCharacteristic = nullptr;
@@ -612,7 +612,7 @@ void setup() {
   setLight(false);
 
   Serial.println();
-  Serial.println("===== SwingLab bat sensor =====");
+  Serial.println("===== SSwinGG bat sensor =====");
 
 #if HAS_BATTERY_SENSE
   analogSetPinAttenuation(BATTERY_PIN, ADC_11db);

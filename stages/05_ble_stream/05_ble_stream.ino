@@ -13,7 +13,7 @@
     - connecting: a phone or a browser (the "central") picks the board (the "peripheral")
     - a service is a folder, a characteristic is a value inside it, each named by a long id
     - notify: the board pushes a new value whenever it has one, nobody has to ask
-    - the 14-byte packet that the SwingLab dashboard reads
+    - the 14-byte packet that the SSwinGG dashboard reads
 
   Light on the board
     slow blinking   waiting for a connection

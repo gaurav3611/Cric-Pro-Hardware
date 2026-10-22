@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SwingLab recorder</title>
+<title>SSwinGG recorder</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#1c7541">
@@ -46,7 +46,7 @@
 </head>
 <body>
 <main>
-  <h1>SwingLab recorder</h1>
+  <h1>SSwinGG recorder</h1>
   <p class="muted small">Connects to the bat sensor, records each shot between Start and Stop, and saves it as a CSV file.</p>
   <div id="banners"></div>
 
@@ -113,7 +113,7 @@ const state = { device: null, characteristic: null, simTimer: null, recording: n
 // Browser storage can be full or switched off. The app must keep working without it.
 const load = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } };
 const save = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; } };
-let history = load("swinglab_recordings", []);
+let history = load("sswingg_recordings", []);
 
 const connected = () => Boolean(state.characteristic || state.simTimer);
 
@@ -203,10 +203,10 @@ function finish(interrupted = false) {
   const guess = classify(rec.samples);
   const chosen = $("shotType").value;
   const label = chosen === "auto" ? guess.label : chosen;
-  const counters = load("swinglab_counters", {});
+  const counters = load("sswingg_counters", {});
   const key = (rec.simulated ? "sim_" : "") + label;
   counters[key] = (counters[key] || 0) + 1;              // numbers never repeat, even after a delete
-  save("swinglab_counters", counters);
+  save("sswingg_counters", counters);
   const name = fileName(label, counters[key], rec.simulated);
   const csv = toCsv(rec.samples);
   const last = rec.samples[rec.samples.length - 1];
@@ -215,8 +215,8 @@ function finish(interrupted = false) {
                   status: interrupted ? "interrupted" : "complete", simulated: rec.simulated, csv };
   download(name, csv);
   history.unshift(entry);
-  const kept = save("swinglab_recordings", history);
-  if (!kept) { entry.csv = null; save("swinglab_recordings", history); }   // storage full: keep the details, not the copy
+  const kept = save("sswingg_recordings", history);
+  if (!kept) { entry.csv = null; save("sswingg_recordings", history); }   // storage full: keep the details, not the copy
 
   $("result").hidden = false;
   $("result").textContent = `Saved ${name}: ${entry.samples} readings in ${(entry.durationMs / 1000).toFixed(1)} s` +
@@ -283,7 +283,7 @@ function renderHistory() {
     const remove = Object.assign(document.createElement("button"), { type: "button", textContent: "Delete" });
     remove.addEventListener("click", () => {
       if (!confirm(`Delete ${h.name} from this list? A file already downloaded stays in Downloads.`)) return;
-      history.splice(i, 1); save("swinglab_recordings", history); renderHistory();
+      history.splice(i, 1); save("sswingg_recordings", history); renderHistory();
     });
     row.append(again, remove);
     li.append(name, info, row);

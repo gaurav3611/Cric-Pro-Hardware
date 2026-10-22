@@ -5,7 +5,7 @@
 
   What it does
     1. measures what the gyroscope reports while the board is still, and removes it from every reading
-    2. turns rotation into bat speed with the same formula the SwingLab dashboard uses
+    2. turns rotation into bat speed with the same formula the SSwinGG dashboard uses
     3. notices when a swing starts and ends, and prints one line for each swing
 
   What you learn

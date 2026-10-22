@@ -1,9 +1,9 @@
 /*
-  The logic of the SwingLab recorder app, with no screen code in it, so that tools/check.mjs
+  The logic of the SSwinGG recorder app, with no screen code in it, so that tools/check.mjs
   can test it on a computer. index.html does the Bluetooth and the screen.
 
   The packet is the kit's: 14 bytes, seven signed 16-bit numbers, low byte first:
-  ax, ay, az, gx, gy, gz, temperature. See stages/08_swinglab_bat/swing_packet.h.
+  ax, ay, az, gx, gy, gz, temperature. See stages/08_sswingg_bat/swing_packet.h.
 */
 
 export const SERVICE_UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";

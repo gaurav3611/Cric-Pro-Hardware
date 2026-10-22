@@ -9,3 +9,11 @@ __pycache__/
 # author's computer. README.md at the top is the one Markdown document that is published.
 /docs/*.md
 /stages/*/README.md
+
+# KiCad's own working files: window settings, backups, caches and locks
+/pcb/*.kicad_prl
+/pcb/*-backups/
+/pcb/fp-info-cache
+/pcb/~*.lck
+/pcb/_autosave-*
+/pcb/#auto_saved_files#

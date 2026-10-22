@@ -1,5 +1,5 @@
 /*
-  The Bluetooth packet the SwingLab dashboard reads.
+  The Bluetooth packet the SSwinGG dashboard reads.
 
   14 bytes: seven 16-bit signed numbers, low byte first, in this order:
 

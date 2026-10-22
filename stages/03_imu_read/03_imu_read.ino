@@ -42,7 +42,7 @@ const uint8_t REG_CMD = 0x7E;         // commands: reset, wake up
 // ---- Scale. A reading is a number from -32768 to +32767, called counts. ----
 // With the range set to +-8 g, 32768 counts mean 8 g, so 1 g is 4096 counts.
 // With the range set to +-2000 degrees per second, 1 degree per second is 16.4 counts.
-// The SwingLab dashboard divides by exactly these two numbers. If you change a range,
+// The SSwinGG dashboard divides by exactly these two numbers. If you change a range,
 // the dashboard shows wrong values. See docs/make-changes.pdf.
 const float COUNTS_PER_G = 4096.0f;
 const float COUNTS_PER_DPS = 16.4f;

@@ -1,6 +1,6 @@
-# SwingLab bat sensor: hardware and firmware, step by step
+# SSwinGG bat sensor: hardware and firmware, step by step
 
-A small sensor that sits on a cricket bat and sends every movement of the bat to the SwingLab dashboard over Bluetooth. This folder holds the circuit, the firmware, and a guide that builds it one stage at a time, so that each stage is tested before the next part is added.
+A small sensor that sits on a cricket bat and sends every movement of the bat to the SSwinGG dashboard over Bluetooth. This folder holds the circuit, the firmware, and a guide that builds it one stage at a time, so that each stage is tested before the next part is added.
 
 It is written for someone who has not done this before. Each stage says what to wire, what to upload, what you should see, and what is going on between the parts.
 
@@ -9,7 +9,7 @@ It is written for someone who has not done this before. Each stage says what to 
 ## What has been checked, and what has not
 
 - **Checked:** every sketch compiles for the ESP32-C3 Super Mini, with no warnings. Stages 1 to 8 have also been run on a computer against a pretend sensor, battery and dashboard, and what they print, send and do with the light was checked there. The 14-byte Bluetooth packet was read back with the web app's own code.
-- **Not checked:** nothing here has run on real hardware yet. The pin orders in the drawings come from published pinouts, not from your boards, and the battery circuit has not been built.
+- **Not checked:** nothing here has run on real hardware yet. The pin orders in the drawings come from published pinouts, not from your boards, the battery circuit has not been built, and the printed circuit board has not been made.
 
 So follow the stages in order, and trust the labels printed on your own boards over any drawing.
 
@@ -63,7 +63,7 @@ Do them in order. Each folder under [stages/](stages/) holds one sketch and a pa
 | [5. Bluetooth](stages/05_ble_stream/README.pdf) | Nothing | Advertising, connecting, notifications, the packet | The test page shows 50 readings a second |
 | [6. Battery](stages/06_battery_power/README.pdf) | Cell, charger, switch, diode | Where the power flows, charging, brownouts | It runs with no cable and counts no brownouts |
 | [7. Battery level](stages/07_battery_level/README.pdf) | Optional: two resistors, one capacitor | Measuring a voltage | The printed voltage matches a multimeter |
-| [8. The bat firmware](stages/08_swinglab_bat/README.pdf) | Nothing | How it all fits together | The dashboard records a shot |
+| [8. The bat firmware](stages/08_sswingg_bat/README.pdf) | Nothing | How it all fits together | The dashboard records a shot |
 | [9. WiFi](stages/09_wifi_to_api/README.pdf) | Optional: nothing | WiFi, HTTP and JSON | The API lists the bat as online |
 
 Stages 1 to 5 run from the USB cable. The battery comes in at stage 6, when everything else is known to work.
@@ -99,6 +99,9 @@ More drawings:
 - [Measuring the battery](diagrams/stage-7-battery-sense.svg)
 - [Zero PCB layout, hole by hole](diagrams/zero-pcb-layout.svg), with the steps in [docs/build-on-zero-pcb.pdf](docs/build-on-zero-pcb.pdf)
 - [The same layout without the diode](diagrams/zero-pcb-layout-no-diode.svg), with a wire in its place
+- The printed circuit board, designed in KiCad: [the schematic](diagrams/pcb-schematic.svg), [the parts side](diagrams/pcb-top.svg) and [the solder side](diagrams/pcb-bottom.svg), with ordering and soldering steps in [docs/order-the-pcb.pdf](docs/order-the-pcb.pdf). No board has been made yet.
+
+![The printed circuit board, drawn by KiCad](pcb/sswingg-bat-3d.png)
 - [Impact sensor, a proposal](diagrams/impact-piezo.svg): a piezo disc on the blade, wired without diodes. The firmware does not read it yet.
 
 ## Is the TP4056 the right charger?
@@ -131,6 +134,7 @@ If an upload cannot connect: hold the BOOT button, press and release RESET, rele
 - [docs/how-it-works.pdf](docs/how-it-works.pdf) explains the whole chain: what the sensor measures, the I2C conversation, the packet, Bluetooth, the arithmetic of the dashboard, and the power circuit.
 - [docs/make-changes.pdf](docs/make-changes.pdf) says what else has to change when you change a pin, a part, the name, the rate or the battery.
 - [docs/build-on-zero-pcb.pdf](docs/build-on-zero-pcb.pdf) is the soldering guide.
+- [docs/order-the-pcb.pdf](docs/order-the-pcb.pdf) is the same build on a printed circuit board: how to order it and solder it.
 - [docs/troubleshooting.pdf](docs/troubleshooting.pdf) lists what can go wrong, by what you see.
 
 ## What is in this folder
@@ -138,14 +142,16 @@ If an upload cannot connect: hold the BOOT button, press and release RESET, rele
 | Path | What it is |
 |---|---|
 | `stages/01_blink` to `stages/09_wifi_to_api` | One Arduino sketch per stage, each with its own page, `README.pdf`. |
-| `stages/08_swinglab_bat/` | The firmware that stays on the bat. Its settings are in `config.h`. |
+| `stages/08_sswingg_bat/` | The firmware that stays on the bat. Its settings are in `config.h`. |
 | `app/` | The same recorder as a web page. `recorder.js` holds its logic, which `tools/check.mjs` tests. |
-| `swinglab_bat_one_file/` | The same firmware as one file, for opening or pasting into the Arduino IDE on its own. `tools/make_one_file.mjs` makes it from stage 8. |
+| `sswingg_bat_one_file/` | The same firmware as one file, for opening or pasting into the Arduino IDE on its own. `tools/make_one_file.mjs` makes it from stage 8. |
 | `stages/*/bmi160.h` | The sensor driver. The same file in three folders, because the Arduino IDE only compiles files inside a sketch's own folder. |
 | `stages/*/swing_packet.h` | Builds the 14-byte packet. This is the agreement with the web app. |
 | `stages/*/battery.h` | Battery voltage to percent. |
 | `diagrams/` | Every drawing as SVG, and `make_diagrams.py`, which draws them. |
-| `docs/` | The six guides listed above, as PDF. |
+| `docs/` | The seven guides listed above, as PDF. |
+| `pcb/` | The printed circuit board as a KiCad 10 project, `sswingg-bat.kicad_pro`, with its own library of the kit's parts. `sswingg-bat-gerbers.zip` is what you upload to a maker, `bom.csv` the parts list. |
+| `tools/make_pcb_files.mjs` | Runs KiCad's checks on the board and makes the Gerber zip, the parts list and the board drawings from the KiCad design. Needs KiCad. |
 | `diagrams/diagrams.pdf` | All drawings in one file, one per page, for printing. |
 | `tools/ble_test.html` | A page that connects to the bat from a browser and shows what it sends. |
 | `tools/check.mjs` | Checks the whole kit without hardware. |
@@ -161,7 +167,7 @@ node tools/check.mjs            # under a minute
 node tools/check.mjs --board    # also compiles every sketch for the ESP32-C3, several minutes
 ```
 
-It needs Node 22 or newer and a C++ compiler. It confirms that the copies of the shared files are identical, that every sketch, the drawings and this README use the same pins, that the packet is what the web app expects, and that every sketch behaves as its stage describes when run in the simulator. It cannot check soldering, radio range or a real battery.
+It needs Node 22 or newer and a C++ compiler. It confirms that the copies of the shared files are identical, that every sketch, the drawings and this README use the same pins, that the packet is what the web app expects, and that every sketch behaves as its stage describes when run in the simulator. When KiCad is installed, it also runs KiCad's checks on the PCB and confirms that its schematic is the circuit of the drawings. It cannot check soldering, radio range or a real battery.
 
 You can also run a single sketch in the simulator and watch what it prints:
 
@@ -173,13 +179,13 @@ The words of the scenario are listed at the top of [tools/sim/sim_main.cpp](tool
 
 ## The phone app
 
-[mobile_app_swing](https://github.com/gaurav3611/mobile_app_swing) holds SwingLab recorder, an Android app written in Flutter, in its own repository. It connects to the bat, records each shot between Start and Stop, guesses the type of shot, and saves every reading as a CSV file in a folder per type, named like `pull_shot/pull_shot_001.csv`. Its README says how to build and install it.
+[mobile_app_swing](https://github.com/gaurav3611/mobile_app_swing) holds SSwinGG recorder, an Android app written in Flutter, in its own repository. It connects to the bat, records each shot between Start and Stop, guesses the type of shot, and saves every reading as a CSV file in a folder per type, named like `pull_shot/pull_shot_001.csv`. Its README says how to build and install it.
 
 [app/](app/) is the same recorder as a web page for Chrome on Android, for phones where installing an app is not wanted. [docs/phone-app.pdf](docs/phone-app.pdf) explains it.
 
 ## Using it with the dashboard
 
-1. Open the SwingLab dashboard in Chrome or Edge and sign in. The web app is in the [Cric-Pro-FE](https://github.com/gaurav3611/Cric-Pro-FE) repository.
+1. Open the SSwinGG dashboard in Chrome or Edge and sign in. The web app is in the [Cric-Pro-FE](https://github.com/gaurav3611/Cric-Pro-FE) repository.
 2. Switch the bat on and wait for the slow blink.
 3. Press **Connect Sensor** and choose `SwingLab-Bat`.
 4. Press **START SHOT**, swing, then press **STOP & SAVE SHOT**. The dashboard reads the sensor only between those two presses.

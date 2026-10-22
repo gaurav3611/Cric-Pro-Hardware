@@ -15,7 +15,7 @@
 #include <Wire.h>
 
 // Raw counts per unit for the ranges this driver selects.
-// The SwingLab dashboard divides by exactly these two numbers, so the ranges must stay
+// The SSwinGG dashboard divides by exactly these two numbers, so the ranges must stay
 // at +-8 g and +-2000 degrees per second.
 const float BMI160_ACC_LSB_PER_G = 4096.0f;
 const float BMI160_GYR_LSB_PER_DPS = 16.4f;

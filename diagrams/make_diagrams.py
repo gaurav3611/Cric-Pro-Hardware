@@ -911,7 +911,7 @@ def data_flow():
         (250, "BMI160 sensor", ["Measures acceleration", "and rotation 100 times", "a second. Keeps the", "newest six numbers", "in its registers."], IMU_BOARD, "#ffffff"),
         (520, "ESP32-C3", ["Asks for the numbers", "50 times a second,", "takes off the still", "value and packs them", "into 14 bytes."], ESP_BOARD, "#ffffff"),
         (790, "Chrome or Edge", ["The browser's Web", "Bluetooth receives", "each packet and", "hands it to the page."], "#34495e", "#ffffff"),
-        (1030, "SwingLab dashboard", ["Unpacks the numbers", "and works out bat", "speed, impact and", "shot direction."], "#0c1420", "#ffffff"),
+        (1030, "SSwinGG dashboard", ["Unpacks the numbers", "and works out bat", "speed, impact and", "shot direction."], "#0c1420", "#ffffff"),
     ]
     top, bh = 110, 170
     for x, title, lines, fill, ink in boxes:

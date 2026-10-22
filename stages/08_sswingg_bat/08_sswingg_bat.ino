@@ -241,7 +241,7 @@ void setup() {
   setLight(false);
 
   Serial.println();
-  Serial.println("===== SwingLab bat sensor =====");
+  Serial.println("===== SSwinGG bat sensor =====");
 
 #if HAS_BATTERY_SENSE
   analogSetPinAttenuation(BATTERY_PIN, ADC_11db);
