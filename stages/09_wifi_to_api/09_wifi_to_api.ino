@@ -8,7 +8,7 @@
   readings straight to the API, 10 times a second, as text in the JSON format.
 
       POST http://<computer>:5050/api/sensor-data
-      {"device_id":"SwingLab-Bat","ax":0.012,"ay":-0.020,"az":1.004,"gx":0.31,"gy":-0.52,"gz":0.11,"ts":12345}
+      {"device_id":"SSwinGG-Bat","ax":0.012,"ay":-0.020,"az":1.004,"gx":0.31,"gy":-0.52,"gz":0.11,"ts":12345}
 
   What you learn
     - WiFi and Bluetooth are two different radios in the same chip
@@ -31,7 +31,7 @@ const char *WIFI_NAME = "YOUR_WIFI_NAME";
 const char *WIFI_PASSWORD = "YOUR_WIFI_PASSWORD";
 const char *API_URL = "http://192.168.1.10:5050/api/sensor-data";  // the computer running the Java API
 
-const char *DEVICE_ID = "SwingLab-Bat";
+const char *DEVICE_ID = "SSwinGG-Bat";
 const uint32_t SEND_PERIOD_MS = 100;  // 10 readings per second
 
 const int SDA_PIN = 3;

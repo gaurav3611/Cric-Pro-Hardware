@@ -187,7 +187,7 @@ The words of the scenario are listed at the top of [tools/sim/sim_main.cpp](tool
 
 1. Open the SSwinGG dashboard in Chrome or Edge and sign in. The web app is in the [Cric-Pro-FE](https://github.com/gaurav3611/Cric-Pro-FE) repository.
 2. Switch the bat on and wait for the slow blink.
-3. Press **Connect Sensor** and choose `SwingLab-Bat`.
+3. Press **Connect Sensor** and choose `SSwinGG-Bat`.
 4. Press **START SHOT**, swing, then press **STOP & SAVE SHOT**. The dashboard reads the sensor only between those two presses.
 
 Only one program can be connected to the bat at a time. Close the test page first.

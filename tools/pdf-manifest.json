@@ -1,22 +1,22 @@
 {
   "tool": "ee63ece1db594b12c1ecc9ecf96925d07e89b492541b8de165622336a6614e78",
-  "drawings": "faa78bfee30e8dda52387200e8d049f4b457324c9d3e84ec2a2dcdd8f1c4840d",
+  "drawings": "575b4cc19921187fad913663e4cf332e6929b002998cd4e988f008c00e0cac32",
   "documents": {
     "docs/build-on-zero-pcb.md": "7e0d43293b7fd85375350aeaee432c69565c32c34b4ad0e5c9855a9792830ed2",
     "docs/how-it-works.md": "6bb0472b3e8b47af5b4a1bfdea91fea3d5e636b3c8fe0c9a840d6bd4051594a3",
-    "docs/make-changes.md": "0e0d2361c5a3cfa9cdde6e2cfc05d9de7edd35d2ccf250f3b78f3d80c0bd2404",
+    "docs/make-changes.md": "18b39d6ad32a3d3e0b5fbcfe3f0275d49ba66efd7d570774b1ad991b4e7ef079",
     "docs/order-the-pcb.md": "ddb488682771bd10a77294745609f698c1536504bf138a2f41a6ad83ee1f1f07",
     "docs/parts-to-buy.md": "c3896869e315e427bf7916d1cc1f506d789de6b60ee45086a7f2e3a58d492848",
-    "docs/phone-app.md": "439923fe1f9da0148c4b78a6823a71b3566115ba8ecf70b9cf7644c768e0461d",
+    "docs/phone-app.md": "326fa1767f038fcf38fbf554e4a4d958aa4bb24851edb9c4dbc73ac6292ae888",
     "docs/troubleshooting.md": "17b7f841813d9d680a1f331cca15cd4c8daebe0f7b6ef7c2396d6467bc6464f7",
     "stages/01_blink/README.md": "7f49e5c99de13d304365b6d13031cfcf1aef193424e680acdd4a20990838db8c",
     "stages/02_i2c_scan/README.md": "817fccce6ad659df0a0f38113ca595a395ab57e45da9521ba8b7dd7a7d2a6313",
     "stages/03_imu_read/README.md": "fa623c088f9a288047d9ba615ab6a7bf2625a165ba266371bd986f8d7bbb4a99",
     "stages/04_swing_speed/README.md": "5f1f875cb95225d4ec02afa7dbbf7a264bc135882c955eea251e47b5c06425df",
-    "stages/05_ble_stream/README.md": "4f7139bf7f82a94faa298c1885746fbe656a61fe7220236713380979999136a9",
-    "stages/06_battery_power/README.md": "41537d0dd54ab6f61f00d80ca5bc35cf8c96cdfee14181813a0d51ef9d4b3f27",
+    "stages/05_ble_stream/README.md": "7bd683d27447e826e6d22465094112bc9b2b82b7b1188999408fe165ee4ca3d3",
+    "stages/06_battery_power/README.md": "f417f31a21d5cc5c0a86767478db7d0187812841d79f2f577729bf89c9f948fa",
     "stages/07_battery_level/README.md": "0eb84ed757c9d65cbe99bca50614fe59b4f77be523a999618f0f8d7117a50673",
-    "stages/08_sswingg_bat/README.md": "dd9b3a9b3c011a668881d17744534cb47e05c294155cd67ea7d990c7567782ab",
-    "stages/09_wifi_to_api/README.md": "f43b5c51dbb4928912290452421e03fac33ffb24d30bc4c1c4227ee0eeb1dc45"
+    "stages/08_sswingg_bat/README.md": "43c1507bcf3a537da9a42b05eca320bd1d048ad5361b0a4469bac388a384806c",
+    "stages/09_wifi_to_api/README.md": "9445322db415c648a3763b7dd678d57b7857d4dd47d660129aa8bf9d49d7e091"
   }
 }

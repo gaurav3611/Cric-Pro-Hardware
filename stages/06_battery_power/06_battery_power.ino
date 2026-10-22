@@ -106,9 +106,9 @@ void setup() {
   }
 
   // The radio is what stresses the supply, so switch it on and advertise.
-  BLEDevice::init("SwingLab-PowerTest");
+  BLEDevice::init("SSwinGG-PowerTest");
   BLEDevice::startAdvertising();
-  Serial.println("Bluetooth is advertising as \"SwingLab-PowerTest\", only to load the battery.");
+  Serial.println("Bluetooth is advertising as \"SSwinGG-PowerTest\", only to load the battery.");
   Serial.println("Send c to clear the counters.");
 }
 
