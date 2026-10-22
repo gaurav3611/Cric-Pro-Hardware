@@ -118,7 +118,7 @@
 // Must match the firmware (config.h of stage 8) and the web app.
 const SERVICE_UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
 const SENSOR_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8";
-const NAME_PREFIX = "SwingLab";
+const NAME_PREFIX = "SSwinGG";
 
 const $ = id => document.getElementById(id);
 const state = { device: null, characteristic: null, simulation: null, total: 0, inThisSecond: 0, rate: 0, peak: 0,
@@ -252,7 +252,7 @@ async function connect() {
   try {
     log("Looking for a device whose name starts with \"" + NAME_PREFIX + "\"...");
     const device = await navigator.bluetooth.requestDevice({
-      filters: [{ namePrefix: NAME_PREFIX }, { services: [SERVICE_UUID] }],
+      filters: [{ namePrefix: NAME_PREFIX }, { namePrefix: "SwingLab" }, { services: [SERVICE_UUID] }], // SwingLab: bats flashed before the rename
       optionalServices: [SERVICE_UUID, "battery_service"],   // the battery level is only there with the stage 7 parts
     });
     $("state").textContent = "Connecting to " + (device.name || "the bat") + "...";

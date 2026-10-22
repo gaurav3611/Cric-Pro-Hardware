@@ -4,7 +4,7 @@
   Hardware: the same as stages 2 to 4. Still on the USB cable.
 
   What it does
-    - turns the board into a Bluetooth Low Energy device called "SwingLab-Bat"
+    - turns the board into a Bluetooth Low Energy device called "SSwinGG-Bat"
     - 50 times a second it reads the sensor, packs the six numbers into 14 bytes,
       and sends them to whoever is connected
 
@@ -35,8 +35,8 @@ const int SCL_PIN = 4;
 const int LED_PIN = 8;
 const int LED_ON = LOW;
 
-// The dashboard only lists devices whose name starts with "SwingLab".
-#define DEVICE_NAME "SwingLab-Bat"
+// The dashboard only lists devices whose name starts with "SSwinGG".
+#define DEVICE_NAME "SSwinGG-Bat"
 
 // These two ids are the address of the data inside the device. The dashboard looks for
 // exactly these, so they must not change. They are random numbers picked once.

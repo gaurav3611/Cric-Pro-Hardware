@@ -1057,7 +1057,7 @@ def bluetooth():
     d.text(50, 120, "What the bat offers", 14, weight="bold")
     d.rect(50, 140, 480, 46, ESP_BOARD, rx=8)
     d.text(66, 169, "Device", 12, fill="#cfd8dc")
-    d.text(130, 169, "SwingLab-Bat", 15, weight="bold", fill="#ffffff")
+    d.text(130, 169, "SSwinGG-Bat", 15, weight="bold", fill="#ffffff")
     d.wire([(80, 186), (80, 240), (100, 240)], MUTED, 2)
     d.rect(100, 212, 430, 56, "#34495e", rx=8)
     d.text(116, 234, "Service: a folder of values", 12, fill="#cfd8dc")
@@ -1080,8 +1080,8 @@ def bluetooth():
 
     # the conversation, step by step
     steps = [
-        ("1", "The bat advertises", "A few times a second it broadcasts: my name is SwingLab-Bat, and I offer service 4fafc201. Its light blinks slowly."),
-        ("2", "You press Connect Sensor", "The browser lists nearby devices whose name starts with SwingLab. A web page may only see what you pick yourself."),
+        ("1", "The bat advertises", "A few times a second it broadcasts: my name is SSwinGG-Bat, and I offer service 4fafc201. Its light blinks slowly."),
+        ("2", "You press Connect Sensor", "The browser lists nearby devices whose name starts with SSwinGG. A web page may only see what you pick yourself."),
         ("3", "The browser connects", "From now on the two take turns many times a second. The bat stops advertising and its light stays on."),
         ("4", "The page finds the value", "It asks for the service by its id, then for the characteristic by its id."),
         ("5", "The page asks for notifications", "It flips a small switch on the characteristic that means: push me every new value."),

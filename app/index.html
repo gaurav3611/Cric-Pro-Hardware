@@ -134,7 +134,7 @@ const onNotify = event => onPacket(event.target.value, event.timeStamp);
 async function connect() {
   try {
     const device = await navigator.bluetooth.requestDevice({
-      filters: [{ namePrefix: NAME_PREFIX }, { services: [SERVICE_UUID] }],
+      filters: [{ namePrefix: NAME_PREFIX }, { namePrefix: "SwingLab" }, { services: [SERVICE_UUID] }], // SwingLab: bats flashed before the rename
       optionalServices: [SERVICE_UUID],
     });
     setStatus("Connecting to " + (device.name || "the sensor") + "...");

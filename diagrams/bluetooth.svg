@@ -6,7 +6,7 @@
 <text x="50" y="120" font-size="14" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">What the bat offers</text>
 <rect x="50" y="140" width="480" height="46" rx="8" fill="#1f2a44" stroke="none" stroke-width="1" fill-opacity="1"/>
 <text x="66" y="169" font-size="12" text-anchor="start" font-weight="normal" fill="#cfd8dc" font-family="Helvetica, Arial, sans-serif">Device</text>
-<text x="130" y="169" font-size="15" text-anchor="start" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">SwingLab-Bat</text>
+<text x="130" y="169" font-size="15" text-anchor="start" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">SSwinGG-Bat</text>
 <path d="M80,186 L80,240 L100,240" fill="none" stroke="#58675e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <rect x="100" y="212" width="430" height="56" rx="8" fill="#34495e" stroke="none" stroke-width="1" fill-opacity="1"/>
 <text x="116" y="234" font-size="12" text-anchor="start" font-weight="normal" fill="#cfd8dc" font-family="Helvetica, Arial, sans-serif">Service: a folder of values</text>
@@ -30,12 +30,12 @@
 <circle cx="606" cy="116" r="15" fill="#1f2a44" stroke="none" stroke-width="1"/>
 <text x="606" y="121" font-size="14" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">1</text>
 <text x="634" y="114" font-size="14" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">The bat advertises</text>
-<text x="634" y="134" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">A few times a second it broadcasts: my name is SwingLab-Bat, and I offer service 4fafc201.</text>
+<text x="634" y="134" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">A few times a second it broadcasts: my name is SSwinGG-Bat, and I offer service 4fafc201.</text>
 <text x="634" y="151" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">Its light blinks slowly.</text>
 <circle cx="606" cy="190" r="15" fill="#1f2a44" stroke="none" stroke-width="1"/>
 <text x="606" y="195" font-size="14" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">2</text>
 <text x="634" y="188" font-size="14" text-anchor="start" font-weight="bold" fill="#17221c" font-family="Helvetica, Arial, sans-serif">You press Connect Sensor</text>
-<text x="634" y="208" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">The browser lists nearby devices whose name starts with SwingLab. A web page may only see</text>
+<text x="634" y="208" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">The browser lists nearby devices whose name starts with SSwinGG. A web page may only see</text>
 <text x="634" y="225" font-size="12" text-anchor="start" font-weight="normal" fill="#58675e" font-family="Helvetica, Arial, sans-serif">what you pick yourself.</text>
 <circle cx="606" cy="264" r="15" fill="#1f2a44" stroke="none" stroke-width="1"/>
 <text x="606" y="269" font-size="14" text-anchor="middle" font-weight="bold" fill="#ffffff" font-family="Helvetica, Arial, sans-serif">3</text>

@@ -40,9 +40,9 @@ const int8_t AXIS_SIGN[3] = {+1, +1, +1};
 
 // ----------------------------------------------------------------------------------
 // The name people see when they connect. The dashboard only lists names that start
-// with "SwingLab". With several bats, give each its own ending, for example SwingLab-Bat2.
+// with "SSwinGG". With several bats, give each its own ending, for example SSwinGG-Bat2.
 // ----------------------------------------------------------------------------------
-#define DEVICE_NAME "SwingLab-Bat"
+#define DEVICE_NAME "SSwinGG-Bat"
 
 // ----------------------------------------------------------------------------------
 // Fixed by the dashboard. Changing any of these breaks the connection to it, unless the
